@@ -3,10 +3,10 @@ import { BabelLogo, BashLogo, BurpLogo, CachingIcon, CrytoIcon, CSSLogo, DesignT
 import Container from "./Container";
 import SectionTitle from "./SectionTitle";
 
-const bigIcon = 'w-16 fill-red-400 m-3 inline-block';
+const bigIcon = 'w-16 fill-red-400 m-3 inline-block opacity-75 hover:scale-110 transition-all hover:opacity-100';
 
-const mdIcon = 'w-12 fill-red-400 m-3 inline-block';
-const smallIcon = 'w-8 fill-red-400 m-3 inline-block';
+const mdIcon = 'w-12 fill-red-400 m-3 inline-block opacity-75 hover:scale-110 transition-all hover:opacity-100';
+const smallIcon = 'w-8 fill-red-400 m-3 inline-block opacity-75 hover:scale-110 transition-all hover:opacity-100';
 const titleIcon = 'w-12 fill-red-400 inline-block';
 
 const burpDetails = `s,of web hacking with takee ap`;
@@ -48,7 +48,6 @@ export default function Skills() {
                 <HTMLLogo className={bigIcon}/>
                 <CSSLogo className={bigIcon}/>
                 <JsLogo className={bigIcon}/>
-                {/* <NodeLogo className={bigIcon}/> */}
                 <ReactLogo className={bigIcon}/>
                 <ElectronJSLogo className={bigIcon}/>    
                 <PostgresLogo className={bigIcon} />
@@ -63,7 +62,7 @@ export default function Skills() {
                 <GitLogo className={mdIcon} />
                 <RedisLogo className={mdIcon} />
                 <DockerLogo className={mdIcon} background="dark:fill-gray-700 fill-gray-200"/>
-                <JestLogo className={mdIcon} />
+                <JestLogo className={mdIcon} background="dark:fill-gray-700 fill-gray-200" />
                 <GitLabLogo className={mdIcon} />
                 <CachingIcon className={mdIcon} />
                 <LinuxLogo className={mdIcon}/>
@@ -83,12 +82,22 @@ export default function Skills() {
                 <VimLogo className={smallIcon}/>
                 <PhotoshopLogo className={smallIcon}/>
                 <IllustratorLogo className={smallIcon}/>
-                {/* <LoadBalancer className={smallIcon} /> */}
               </div>
             </div>
-          </div>     
-          <div className="dark:bg-gray-550 bg-gray-350 2xl:w-96 w-full rounded-lg shrink-0 2xl:h-full h-[calc(100%-26rem)]">
           </div>
+          {
+            false ? 
+            <div className="flex justify-center items-center dark:bg-gray-650 bg-gray-300 2xl:w-96 w-full rounded-lg shrink-0 2xl:h-full h-[calc(100%-26rem)] border border-2 border-dashed border-gray-400 shadow-inner shadow-[#0006]">
+              <span className="inline-block text-center text-2xl select-none opacity-60">
+                Click in one of the icons
+                <br />
+                <span className="text-7xl">&#11013;</span>
+              </span>
+            </div> :
+            <Container className="2xl:w-96 w-full shrink-0 2xl:h-full h-[calc(100%-26rem)]">
+
+            </Container>
+          }
         </Container>   
         <Container className={'relative'}>
           <ContainerTitle title="Security" Icon={HackerIcon} />
