@@ -1,3 +1,16 @@
+@font-face {
+  font-family: 'Poppins';
+  src:  url('lib/fonts/Poppins.ttf') format('truetype'), 
+        url('lib/fonts/Poppins.woff') format('woff'), 
+        url('lib/fonts/Poppins.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Inter Black';
+  src:  url('lib/fonts/Inter-Black.woff') format('woff'), 
+        url('lib/fonts/Inter-Black.woff2') format('woff2');
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,9 +18,96 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  height: 100%;
+}
+html {
+  height: 100%;
+}
+#root {
+  height: 100%;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+body::-webkit-scrollbar { width: 0 !important }
+
+.poppins {
+  font-family: 'Poppins';
+}
+
+.inter-black {
+  font-family: 'Inter Black';
+}
+
+
+
+.z-5 {
+  z-index: 5;
+}
+
+.z-4 {
+  z-index: 4;
+}
+
+.z-3 {
+  z-index: 3;
+}
+
+
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer components {
+  .icon {
+    @apply p-2 px-2 rounded border align-top m-2 border-red-400
+  }
+  .btn {
+    @apply p-2 px-4 rounded border align-top m-2 border-red-400
+  }
+  .fade-stroke-text-dark {
+    box-shadow: inset -90px -85px 60px #0e1013;
+    /* #0e1013; */
+  }
+  
+  .fade-stroke-text-light {
+    box-shadow: inset -90px -85px 60px #fff;
+    /* #0e1013; */
+  }
+  
+  .testt {
+    transition: box-shadow .1s, transform .1s;
+    border-radius: 8px;
+    padding: 1rem;
+    margin: 1rem;
+    position: absolute;
+    left: 0;
+    width: calc(100% - 2rem);
+    bottom: 4rem;
+    height: calc(100% - 10rem);
+    @apply bg-gradient-to-br dark:from-gray-600 dark:to-gray-750 from-gray-100 to-gray-250 shadow-md shadow-[#0003]
+  }
+
+  .test {
+    display: block;
+    box-shadow: 3px 2px 1px rgba(0, 0, 0, 0.479);
+  }
+
+  .ttt{
+    padding: .3rem;
+    padding-top: .75rem;
+    border-radius: 5px;
+    background-color: red;
+    box-sizing: content-box;
+    left: -.3rem;
+    bottom: -.3rem;
+  }
+}
+
+
