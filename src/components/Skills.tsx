@@ -36,12 +36,13 @@ export default function Skills() {
             {skillsPresentation.security.description}
           </p>
           {detailsContainer && <div className="testt overflow-hidden">
-            {detailsContainer.text}
+            <h2 className="text-2xl font-bold mb-2 ml-2">{detailsContainer.title}</h2>
+            {detailsContainer.description}
           </div>}
           <div className="relative z-4 mt-4">
             {
               skillsDetails.security.map((skill, index) => (
-                <SecuritySectionIcon className="transition-all" style={{transform: detailsContainer?.position === index ? 'scale(1.1)' : ''}} Icon={skill.Icon} details={{text:skill.description, position: index}} setDetailsContainer={setDetailsContainer} />  
+                <SecuritySectionIcon className="transition-all" style={{transform: detailsContainer?.position === index ? 'scale(1.1)' : ''}} Icon={skill.Icon} details={{...skill, position: index}} setDetailsContainer={setDetailsContainer} />  
               ))
             }
           </div>
