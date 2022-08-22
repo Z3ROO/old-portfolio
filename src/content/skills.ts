@@ -30,29 +30,38 @@ const securityDetails = [
   {
     title:'Burp',
     Icon: BurpLogo,
-    description: 'burp burp burp burp burp burp burp burp burp burp burp burp burp burp '
+    description: 'Burp is a proxy tool for send/intercept http request/response. Almost one year using this tool made me fluent in http.'
   },
   {
     title:'Owasp',
     Icon: OwaspLogo,
-    description: 'owasp owasp owasp owasp owasp owasp owasp owasp owasp owasp owasp owasp owasp owasp owasp owasp '
+    description: 'Up to date with the owasp 2017 & 2021 top 10 vulnerabilities e much more not included in the list.'
   },
   {
     title:'Browser Security',
     Icon: WebProtectionIcon,
-    description: 'browser security browser security browser security browser security browser security browser security browser security browser security browser security browser security browser security browser security browser security browser security browser security '
+    description: 'Able to deal, respect and or implement browser security mechanisms like CORS, SOP, CSP etc.'
   }
 ]
 
 const developmentDetails = [
   {
+    title: 'Fundamentals',
+    Icon: FundamentalsIcon,
+    descrition: [
+      'Strong logical thinking.',
+      'Data structures and Algorithms.',
+      'Visualize code end-result.'
+    ]
+  },
+  {
     title: 'HTML',
     Icon: HTMLLogo,
     descrition: [
-      'Conventions and best practices',
-      'Semantic structure',
-      'SEO',
-      'Basics of accessibility'
+      'Conventions and best practices.',
+      'Semantic structure.',
+      'SEO.',
+      'Basics of accessibility.'
     ]
   },
   {
@@ -60,8 +69,8 @@ const developmentDetails = [
     Icon: CSSLogo,
     descrition: [
       'Box Model, flexbox, grid.',
-      'Responsive design',
-      'Basics of SASS'
+      'Responsive design.',
+      'Basics of SASS.'
     ]
   },
   {
@@ -69,60 +78,90 @@ const developmentDetails = [
     Icon: JsLogo,
     descrition: [
       'ES6+',
-      'Promises, async/await',
-      'Core concepts: CallStack, EventLoop, hoisting, closure',
-      'DOM manipulations, fetch'
+      'NodeJs core modules and concepts.',
+      'Promises, async/await.',
+      'Core concepts: CallStack, EventLoop, hoisting, closure etc.',
+      'DOM manipulations, fetch.'
     ]
   },
   {
     title: 'ReactJS/Native',
     Icon: ReactLogo,
-    descrition: []
+    descrition: [
+      'Browser/Android/IOS.',
+      'Proficient with functional components.',
+      'Complete understanding of hooks.',
+      'core concepts: Reconciliation algorithm, state update etc.',
+      'Overall understanding of class components.'
+    ]
   },
   {
     title: 'ElectronJS',
     Icon: ElectronJSLogo,
-    descrition: []
+    descrition: [
+      'Create fully functional desktop apps'
+    ]
   },
   {
     title: 'SQL',
     Icon: PostgresLogo,
-    descrition: []
+    descrition: [
+      'PostgreSQL',
+      'Complex CRUD operations',
+      'Transations',
+      'Migrations and migration tecniques',
+      'CLI: psql, ...'
+    ]
   },
   {
     title: 'No-SQL',
     Icon: MongoLogo,
-    descrition: []
+    descrition: [
+      'Complex CRUD operations',
+      'Transations',
+      'Migrations and migration tecniques',
+      'able to use mongoose if necessary'
+    ]
   },
   {
     title: 'O.S',
     Icon: OSIcon,
-    descrition: []
+    descrition: [
+      'Threds and process.',
+      'Concurrency, parallelism etc.'
+    ]
   },
   {
     title: 'Network fundamentals',
     Icon: NetworkIcon,
-    descrition: []
-  },
-  {
-    title: 'Fundamentals',
-    Icon: FundamentalsIcon,
-    descrition: []
+    descrition: [
+      '5 layer network model.',
+      'TCP/IP.',
+      'HTTP',
+      'DNS'
+    ]
   },
   {
     title: 'GraphQL',
     Icon: GraphQlLogo,
-    descrition: []
+    descrition: [
+      'Queries and mutations',
+      'able to use Apollo client if necessary'
+    ]
   },
   {
     title: 'NextJS',
     Icon: NextJSLogo,
-    descrition: []
+    descrition: [
+      'SSG and SSR'
+    ]
   },
   {
     title: 'Git',
     Icon: GitLogo,
-    descrition: []
+    descrition: [
+      'Git flow'
+    ]
   },
   {
     title: 'Redis',
@@ -137,7 +176,9 @@ const developmentDetails = [
   {
     title: 'Jest',
     Icon: JestLogo,
-    descrition: []
+    descrition: [
+      'Back-end unit test'
+    ]
   },
   {
     title: 'GitLab',
@@ -152,17 +193,24 @@ const developmentDetails = [
   {
     title: 'Linux/WSL',
     Icon: LinuxLogo,
-    descrition: []
+    descrition: [
+      'Debian based distros',
+      'Most commom tools/cmds: find, sed, awk, grep, curl, wget.'
+    ]
   },
   {
     title: 'Bash',
     Icon: BashLogo,
-    descrition: []
+    descrition: [
+      'Broad understanding and practice bash as a language. '
+    ]
   },
   {
     title: 'npm',
     Icon: NPMLogo,
-    descrition: []
+    descrition: [
+      'NPM scripts.'
+    ]
   },
   {
     title: 'Webpack',
@@ -212,17 +260,26 @@ const developmentDetails = [
   {
     title: 'Vim',
     Icon: VimLogo,
-    descrition: []
+    descrition: [
+      'Vim can be something very usefull when some atipical editing directly in the server must happen.',
+      'Most common vim commands.'
+    ]
   },
   {
     title: 'Photoshop',
     Icon: PhotoshopLogo,
-    descrition: []
+    descrition: [
+      'Complete confortable with the software.',
+      'Intermediary image manipulations.'
+    ]
   },
   {
     title: 'Illustrator',
     Icon: IllustratorLogo,
-    descrition: []
+    descrition: [
+      'Complete confortable with the software.',
+      'Intermediary vector skills.'
+    ]
   }
 ];
 
