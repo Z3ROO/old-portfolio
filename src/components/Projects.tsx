@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import { projects } from "../content/projects";
 import Container from "./Container";
 import SectionTitle from "./SectionTitle";
@@ -12,7 +13,10 @@ function Project({project}: any) {
                   <h2 className="text-3xl font-bold mr-4 inline-block">{project.title}</h2>
                   <div className="inline-flex self-end align-bottom">
                     {project.screens.map((item: any) => (
-                      <button><item.Icon className="w-8 m-1 fill-red-400" /></button>
+                      <button className="relative group">
+                        <item.Icon className="w-8 m-1 fill-red-400" />
+                        <BounceInfoTag item={item} />
+                      </button>
                     ))}
                   </div>
                 </div>
@@ -22,7 +26,9 @@ function Project({project}: any) {
               <div className={`flex flex-col`}>
                 <div className={`flex m-2`}>
                   {project.dependencies.map((item: any) => (
-                    <div title={item.title}><item.Icon className="w-4 -mb-1 m-1 fill-red-400"/></div>
+                    <div title={item.title}>
+                      <item.Icon className="w-4 -mb-1 m-1 fill-red-400"/>
+                    </div>
                   ))}
                 </div>
                 <div className={``}>
@@ -48,4 +54,14 @@ export default function Projects() {
               ))
             }
           </>
+}
+
+function BounceInfoTag({item}:any) {
+
+  return (
+    <div className="absolute hidden group-hover:block group-hover:bounce text-white bg-red-400 px-2 py-1 rounded -top-10 left-0 whitespace-nowrap">
+      {item.title}
+      <div className="absolute w-0 h-0 border border-8 border-red-400 border-b-transparent border-r-transparent border-l-transparent ml-1"></div>
+    </div>
+  )
 }
