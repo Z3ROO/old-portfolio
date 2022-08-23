@@ -49,6 +49,7 @@ const developmentDetails = [
     title: 'Fundamentals',
     Icon: FundamentalsIcon,
     descrition: [
+      'Able to build anything data-intensive related',
       'Strong logical thinking.',
       'Data structures and Algorithms.',
       'Visualize code end-result.'
