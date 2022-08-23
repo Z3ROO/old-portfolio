@@ -70,9 +70,9 @@ export default function Header() {
             <section className="p-8 pt-14 pb-20 poppins">
               <h1 className="text-9xl align-top m-0 p-0">
                 Pe
-                <span ref={thirdLetter} className="transition inline-block">d</span>
-                <span ref={fourthLetter} className="transition inline-block">r</span>
-                <span ref={fifthLetter} className="transition inline-block">o</span>
+                <span ref={thirdLetter} className="transition-transform inline-block">d</span>
+                <span ref={fourthLetter} className="transition-transform inline-block">r</span>
+                <span ref={fifthLetter} className="transition-transform inline-block">o</span>
               </h1>
               <div className="flex">
                 <h2 className="text-5xl align-top m-0 p-0 text-red-400">Front-end Developer</h2>
