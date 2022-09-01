@@ -23,6 +23,7 @@ function MinorProject({project}:any) {
   let {title, description} = project;
   if (title.length > 18)
     title = title.substring(0,18)+'...'
+    
   return (
     <Container className="w-60 mr-4">
       <ReactLogo className="w-48 h-48 fill-red-400"/>

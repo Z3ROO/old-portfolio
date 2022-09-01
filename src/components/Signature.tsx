@@ -1,10 +1,7 @@
 import { useEffect, useRef } from 'react';
-import devicesIcon from '../devices-icon.svg';
 import { DevicesScreen, MoonIcon, SunIcon } from '../lib/icons';
-import moonIcon from '../moon.png';
-import sunIcon from '../sun.png';
 
-export default function Header() {
+export default function Signature() {
   const thirdLetter = useRef<HTMLSpanElement>(null);
   const fourthLetter = useRef<HTMLSpanElement>(null);
   const fifthLetter = useRef<HTMLSpanElement>(null);
@@ -20,9 +17,7 @@ export default function Header() {
       throw new Error('Ref not set');
 
     const apply = () => {
-      //fourth.style.transform = 'translateX(84px)';
       fourth.style.transform = 'translateX(0.6em)';
-      //fifth.style.transform = 'translateX(-45px)';
       fifth.style.transform = 'translateX(-0.38em)';
 
       fifth.style.transformOrigin = 'top';
@@ -55,7 +50,6 @@ export default function Header() {
     }
 
     const handler = () => {
-
       if (odd)
         apply()
       else
@@ -66,7 +60,9 @@ export default function Header() {
     const interval = setInterval(handler, 5000);
 
     return () => clearInterval(interval);
-  },[])
+  },[]);
+
+  const nameAnimatedLettersClassName = 'transition-transform inline-block'
   
   return  <section>
             <div className="p-8 pt-14 pb-20 poppins">
@@ -76,26 +72,31 @@ export default function Header() {
                 2xl:text-[128px]  
                 `}>
                 Pe
-                <span ref={thirdLetter} className="transition-transform inline-block">d</span>
-                <span ref={fourthLetter} className="transition-transform inline-block">r</span>
-                <span ref={fifthLetter} className="transition-transform inline-block">o</span>
+                <span ref={thirdLetter} className={nameAnimatedLettersClassName}>d</span>
+                <span ref={fourthLetter} className={nameAnimatedLettersClassName}>r</span>
+                <span ref={fifthLetter} className={nameAnimatedLettersClassName}>o</span>
               </h1>
               <div className="flex select-none -mt-4">
                 <h2 className="xl:text-3xl 2xl:text-5xl align-top m-0 p-0 text-red-400">Front-end Developer</h2>
                 <DevicesScreen className="xl:w-8 2xl:w-10 mt-auto ml-4 fill-red-400"/>
               </div>
             </div>
-            <div className="absolute right-6 top-6">
-              {/* <button className='btn border-red-400 '>Contato</button> */}
-              <div className='group cursor-pointer' onClick={darkMode} >
-                <MoonIcon className='w-7 hidden dark:inline moon-dance fill-white'/>
-                <SunIcon className='w-7 dark:hidden sun-dance'/>
-              </div>
-            </div>
+            <DarkModeButton />
           </section>
 }
 
-function darkMode() {
+function DarkModeButton() {
+  return (
+    <div className="absolute right-6 top-6">
+      <div className='group cursor-pointer' onClick={cacheDarkMode} >
+        <MoonIcon className='w-7 hidden dark:inline moon-dance fill-white'/>
+        <SunIcon className='w-7 dark:hidden sun-dance'/>
+      </div>
+    </div>
+  )
+}
+
+function cacheDarkMode() {
   const htmlNode = document.querySelector('html');
 
   if (htmlNode!.classList.contains('dark')){
