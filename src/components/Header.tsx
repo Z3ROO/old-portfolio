@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 import devicesIcon from '../devices-icon.svg';
-import { DevicesScreen } from '../lib/icons';
+import { DevicesScreen, MoonIcon, SunIcon } from '../lib/icons';
 import moonIcon from '../moon.png';
 import sunIcon from '../sun.png';
 
@@ -20,8 +20,10 @@ export default function Header() {
       throw new Error('Ref not set');
 
     const apply = () => {
-      fourth.style.transform = 'translateX(84px)';
-      fifth.style.transform = 'translateX(-45px)';
+      //fourth.style.transform = 'translateX(84px)';
+      fourth.style.transform = 'translateX(0.6em)';
+      //fifth.style.transform = 'translateX(-45px)';
+      fifth.style.transform = 'translateX(-0.38em)';
 
       fifth.style.transformOrigin = 'top';
       third.style.transformOrigin = 'top';
@@ -66,27 +68,31 @@ export default function Header() {
     return () => clearInterval(interval);
   },[])
   
-  return  <header>
-            <section className="p-8 pt-14 pb-20 poppins">
-              <h1 className="text-9xl align-top m-0 p-0">
+  return  <section>
+            <div className="p-8 pt-14 pb-20 poppins">
+              <h1 className={`
+                align-top m-0 p-0 select-none
+                xl:text-[112px] 
+                2xl:text-[128px]  
+                `}>
                 Pe
                 <span ref={thirdLetter} className="transition-transform inline-block">d</span>
                 <span ref={fourthLetter} className="transition-transform inline-block">r</span>
                 <span ref={fifthLetter} className="transition-transform inline-block">o</span>
               </h1>
-              <div className="flex">
-                <h2 className="text-5xl align-top m-0 p-0 text-red-400">Front-end Developer</h2>
-                <DevicesScreen className="w-10 mt-auto ml-4 fill-red-400"/>
+              <div className="flex select-none -mt-4">
+                <h2 className="xl:text-3xl 2xl:text-5xl align-top m-0 p-0 text-red-400">Front-end Developer</h2>
+                <DevicesScreen className="xl:w-8 2xl:w-10 mt-auto ml-4 fill-red-400"/>
               </div>
-            </section>
-            <section className="absolute right-2 top-2">
-              <button className='btn border-red-400 '>Contato</button>
-              <button className='icon border-red-400 group dark:bg-white' onClick={darkMode} >
-                <img src={moonIcon} alt='Night mode' className='w-6 dark:hidden' />
-                <img src={sunIcon} alt='Day mode' className='w-6 hidden dark:inline'/>
-              </button>
-            </section>
-          </header>
+            </div>
+            <div className="absolute right-6 top-6">
+              {/* <button className='btn border-red-400 '>Contato</button> */}
+              <div className='group cursor-pointer' onClick={darkMode} >
+                <MoonIcon className='w-7 hidden dark:inline moon-dance fill-white'/>
+                <SunIcon className='w-7 dark:hidden sun-dance'/>
+              </div>
+            </div>
+          </section>
 }
 
 function darkMode() {

@@ -42,7 +42,9 @@ body::-webkit-scrollbar { width: 0 !important }
   font-family: 'Inter Black';
 }
 
-
+.z-6 {
+  z-index: 6;
+}
 
 .z-5 {
   z-index: 5;
@@ -61,13 +63,58 @@ body::-webkit-scrollbar { width: 0 !important }
 @tailwind components;
 @tailwind utilities;
 
+.aaaa {
+  background-image: url(./synth.png);
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: contain;
+  animation: ani-synth 1.5s ease-out;
+  opacity: .4;
+}
 
-/* @-webkit-keyframes bounce { 
-  0%, 20%, 50%, 80%, 100% {-webkit-transform: translateY(0);} 
-  10% {transform: translateY(-5px);} 
-  40% {transform: translateY(-2px);} 
-} 
-*/
+.wave {
+
+}
+
+.wave-line {
+
+}
+
+
+
+.wave-dot-wrapper {
+  width: 5px;
+  height: 100px;
+  background-color: transparent;
+  position: absolute;
+  animation: wave-ani 2.5s infinite;
+}
+
+@keyframes wave-ani {
+  50% {
+    transform: translateY(-100%)
+  }
+}
+
+@keyframes wave-fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes ani-synth {
+  0%, 10% {
+    transform: rotateX(90deg);
+    transform-origin: bottom;
+  }
+  100% {
+    transform: rotateX(0deg);
+    transform-origin: bottom;
+  }
+}
 
 @keyframes bounce {
   0% { transform: scale(0.4) translateY(25px);}
@@ -76,12 +123,43 @@ body::-webkit-scrollbar { width: 0 !important }
   80% { transform: scale(1.05);}
   100% { transform: scale(1);}
 }
+
+@keyframes moon-dance {
+  0% {transform: rotate(0)}
+  20% {transform: rotate(7deg)}
+  40% {transform: rotate(-2deg) translateY(-3px)}
+  60% {transform: rotate(10deg)}
+  80%, 100% {transform: rotate(0deg) translateY(0)}
+}
+
+@keyframes sun-dance {
+  0% {transform: scale(1) translateY(0)}
+  20% {transform: scale(1.05)translateY(-2px)}
+  40%,50% {transform: scale(0.95) translateY(-3px)}
+  70%,80% {transform: scale(1.15) translateY(-2px)}
+  100% {transform: scale(1) translateY(0)}
+}
+
 /* @keyframes bounce {
   20% { transform: scale(2) translateY(-15px);}
   50% { transform: scale(1);}
 } */
 
 @layer components {
+  .wave-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 100%;
+    background-color: white;
+    /* bottom: 14px;
+    left: 788px; */
+    position: absolute;
+    bottom: 0;
+    opacity: 0;
+    animation: wave-fade-in 2.5s forwards;
+    @apply bg-red-300
+  }
+
   .icon {
     @apply p-2 px-2 rounded border align-top m-2 border-red-400
   }
@@ -103,6 +181,13 @@ body::-webkit-scrollbar { width: 0 !important }
     animation: bounce .4s ease-out; 
   }
 
+  .moon-dance {
+    animation: moon-dance 5s infinite;
+  }
+
+  .sun-dance {
+    animation: sun-dance 5s infinite;
+  }
   .testt {
     transition: box-shadow .1s, transform .1s;
     border-radius: 8px;
@@ -129,5 +214,9 @@ body::-webkit-scrollbar { width: 0 !important }
     box-sizing: content-box;
     left: -.3rem;
     bottom: -.3rem;
+  }
+
+  .glow-test {
+    box-shadow: 5px -15px 175px 110px #f8717117;
   }
 }
