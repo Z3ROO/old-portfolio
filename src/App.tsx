@@ -1,14 +1,13 @@
-import { createContext, useEffect, useRef } from "react";
+import { createContext, useEffect } from "react";
 import GreetingSection from "./components/GreetingSection";
 import MinorProjects from "./components/MinorProjects";
 import Projects from "./components/Projects";
 import Skills from "./components/Skills";
 
 function Controller() {
-  const scrollLock = useRef<boolean>(false);
 
   return {
-    scrollLock: scrollLock.current
+    
   }
 }
 
