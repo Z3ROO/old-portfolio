@@ -186,7 +186,7 @@ function SecuritySection(): JSX.Element {
         <p className="text-lg">
           {skillsPresentation.security.description}
         </p>
-        {detailsContainer && <div className="testt overflow-hidden">
+        {detailsContainer && <div className="skill-detail-container overflow-hidden">
           <h2 className="text-2xl font-bold mb-2 ml-2">{detailsContainer.title}</h2>
           {detailsContainer.description}
         </div>}

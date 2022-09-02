@@ -63,24 +63,6 @@ body::-webkit-scrollbar { width: 0 !important }
 @tailwind components;
 @tailwind utilities;
 
-.aaaa {
-  background-image: url(./synth.png);
-  background-repeat: no-repeat;
-  background-position: bottom;
-  background-size: contain;
-  animation: ani-synth 1.5s ease-out;
-  opacity: .4;
-}
-
-.wave {
-
-}
-
-.wave-line {
-
-}
-
-
 
 .wave-dot-wrapper {
   width: 5px;
@@ -140,19 +122,12 @@ body::-webkit-scrollbar { width: 0 !important }
   100% {transform: scale(1) translateY(0)}
 }
 
-/* @keyframes bounce {
-  20% { transform: scale(2) translateY(-15px);}
-  50% { transform: scale(1);}
-} */
-
 @layer components {
   .wave-dot {
     width: 5px;
     height: 5px;
     border-radius: 100%;
     background-color: white;
-    /* bottom: 14px;
-    left: 788px; */
     position: absolute;
     bottom: 0;
     opacity: 0;
@@ -188,7 +163,7 @@ body::-webkit-scrollbar { width: 0 !important }
   .sun-dance {
     animation: sun-dance 5s infinite;
   }
-  .testt {
+  .skill-detail-container {
     transition: box-shadow .1s, transform .1s;
     border-radius: 8px;
     padding: 1rem;
@@ -199,24 +174,5 @@ body::-webkit-scrollbar { width: 0 !important }
     bottom: 4rem;
     height: calc(100% - 10rem);
     @apply bg-gradient-to-br dark:from-gray-600 dark:to-gray-750 from-gray-100 to-gray-250 shadow-md shadow-[#0003]
-  }
-
-  .test {
-    display: block;
-    box-shadow: 3px 2px 1px rgba(0, 0, 0, 0.479);
-  }
-
-  .ttt{
-    padding: .3rem;
-    padding-top: .75rem;
-    border-radius: 5px;
-    background-color: red;
-    box-sizing: content-box;
-    left: -.3rem;
-    bottom: -.3rem;
-  }
-
-  .glow-test {
-    box-shadow: 5px -15px 175px 110px #f8717117;
   }
 }
