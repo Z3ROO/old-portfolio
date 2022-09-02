@@ -1,9 +1,9 @@
-import { minorProjects } from "../content/projects";
-import { GitLogo, NPMLogo, ReactLogo } from "../lib/icons";
+import { IminorProject, minorProjects } from "../content/projects";
+import { GitLogo, NPMLogo } from "../lib/icons";
 import Container from "./Container";
 import SectionTitle from "./SectionTitle";
 
-export default function MinorProjects() {
+export default function MinorProjects(): JSX.Element {
   return (
     <>
       <SectionTitle title="Libs/Tools" />
@@ -19,9 +19,9 @@ export default function MinorProjects() {
   )
 }
 
-function MinorProject({project}:any) {
+function MinorProject({project}:{project:IminorProject}): JSX.Element {
   let {title, description, Icon} = project;
-  if (title.length > 18)
+  if (title.length > 20)
     title = title.substring(0,18)+'...'
     
   return (

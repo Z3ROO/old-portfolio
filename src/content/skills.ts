@@ -1,20 +1,24 @@
 import { BurpLogo, OwaspLogo, WebProtectionIcon, HTMLLogo, CSSLogo, JsLogo, ReactLogo, ElectronJSLogo, PostgresLogo, MongoLogo, OSIcon, NetworkIcon, FundamentalsIcon, GraphQlLogo, NextJSLogo, GitLogo, RedisLogo, DockerLogo, JestLogo, GitLabLogo, CachingIcon, LinuxLogo, BashLogo, NPMLogo, WebpackLogo, BabelLogo, PostCSSLogo, TailwindCSSLogo, StyledComponents, ReactRouter, CrytoIcon, OAuthLogo, JWTLogo, VimLogo, PhotoshopLogo, IllustratorLogo, HackerIcon, DevelopmentIcon, DesignThinkingIcon } from "../lib/icons";
+import { ITitledIcon } from "./projects";
 
+export interface ISkillPresentation extends ITitledIcon {
+  description: string|string[]
+}
 
-const designThinkingPresentation = {
+const designThinkingPresentation: ISkillPresentation = {
   title: 'Design Thinking',
   Icon: DesignThinkingIcon,
   description: `Recently the idea of design thinking is strongly atetched to Product Design and its variants, but it doesnt stop there. It can be aplied to literally anything, from designing your day to designing your future depicting the appropriate decisions to achieve a certain goal, a certain result.
   Of course that happens once you get a deep understanding of the fundamentals and from there it can be applied to anything.`
 }
 
-const securityPresentation = {
+const securityPresentation: ISkillPresentation = {
   title: 'Security',
   Icon: HackerIcon,
   description: `A full year of intesive study of web hacking with takes on bugbounty hunting.A full year of intesive study of web hacking with takes on bugbounty hunting.`
 }
 
-const developmentPresentation = {
+const developmentPresentation: ISkillPresentation = {
   title: 'Development',
   Icon: DevelopmentIcon,
   description: `Around 10 years working with IT and Almost 5 of those practicing web development, currently on what some would refer to mid-to-senior level. I'm more confortable with front-end development but slowly shifting to backend with a more low-level programming approach.`
@@ -26,7 +30,7 @@ const designThinkingDetails = [
   }
 ]
 
-const securityDetails = [
+const securityDetails: ISkillPresentation[] = [
   {
     title:'Burp',
     Icon: BurpLogo,
@@ -44,11 +48,11 @@ const securityDetails = [
   }
 ]
 
-const developmentDetails = [
+const developmentDetails: ISkillPresentation[] = [
   {
     title: 'Fundamentals',
     Icon: FundamentalsIcon,
-    descrition: [
+    description: [
       'Able to build anything data-intensive related',
       'Strong logical thinking.',
       'Data structures and Algorithms.',
@@ -58,7 +62,7 @@ const developmentDetails = [
   {
     title: 'HTML',
     Icon: HTMLLogo,
-    descrition: [
+    description: [
       'Conventions and best practices.',
       'Semantic structure.',
       'SEO.',
@@ -68,7 +72,7 @@ const developmentDetails = [
   {
     title: 'CSS',
     Icon: CSSLogo,
-    descrition: [
+    description: [
       'Box Model, flexbox, grid.',
       'Responsive design.',
       'Basics of SASS.'
@@ -77,7 +81,7 @@ const developmentDetails = [
   {
     title: 'Javascript',
     Icon: JsLogo,
-    descrition: [
+    description: [
       'ES6+',
       'NodeJs core modules and concepts.',
       'Promises, async/await.',
@@ -88,7 +92,7 @@ const developmentDetails = [
   {
     title: 'ReactJS/Native',
     Icon: ReactLogo,
-    descrition: [
+    description: [
       'Browser/Android/IOS.',
       'Proficient with functional components.',
       'Complete understanding of hooks.',
@@ -99,14 +103,14 @@ const developmentDetails = [
   {
     title: 'ElectronJS',
     Icon: ElectronJSLogo,
-    descrition: [
+    description: [
       'Create fully functional desktop apps'
     ]
   },
   {
     title: 'SQL',
     Icon: PostgresLogo,
-    descrition: [
+    description: [
       'PostgreSQL',
       'Complex CRUD operations',
       'Transations',
@@ -117,7 +121,7 @@ const developmentDetails = [
   {
     title: 'No-SQL',
     Icon: MongoLogo,
-    descrition: [
+    description: [
       'Complex CRUD operations',
       'Transations',
       'Migrations and migration tecniques',
@@ -127,7 +131,7 @@ const developmentDetails = [
   {
     title: 'O.S',
     Icon: OSIcon,
-    descrition: [
+    description: [
       'Threds and process.',
       'Concurrency, parallelism etc.'
     ]
@@ -135,7 +139,7 @@ const developmentDetails = [
   {
     title: 'Network fundamentals',
     Icon: NetworkIcon,
-    descrition: [
+    description: [
       '5 layer network model.',
       'TCP/IP.',
       'HTTP',
@@ -145,7 +149,7 @@ const developmentDetails = [
   {
     title: 'GraphQL',
     Icon: GraphQlLogo,
-    descrition: [
+    description: [
       'Queries and mutations',
       'able to use Apollo client if necessary'
     ]
@@ -153,48 +157,48 @@ const developmentDetails = [
   {
     title: 'NextJS',
     Icon: NextJSLogo,
-    descrition: [
+    description: [
       'SSG and SSR'
     ]
   },
   {
     title: 'Git',
     Icon: GitLogo,
-    descrition: [
+    description: [
       'Git flow'
     ]
   },
   {
     title: 'Redis',
     Icon: RedisLogo,
-    descrition: []
+    description: []
   },
   {
     title: 'Docker',
     Icon: DockerLogo,
-    descrition: []
+    description: []
   },
   {
     title: 'Jest',
     Icon: JestLogo,
-    descrition: [
+    description: [
       'Back-end unit test'
     ]
   },
   {
     title: 'GitLab',
     Icon: GitLabLogo,
-    descrition: []
+    description: []
   },
   {
     title: 'Caching',
     Icon: CachingIcon,
-    descrition: []
+    description: []
   },
   {
     title: 'Linux/WSL',
     Icon: LinuxLogo,
-    descrition: [
+    description: [
       'Debian based distros',
       'Most commom tools/cmds: find, sed, awk, grep, curl, wget.'
     ]
@@ -202,66 +206,66 @@ const developmentDetails = [
   {
     title: 'Bash',
     Icon: BashLogo,
-    descrition: [
+    description: [
       'Broad understanding and practice bash as a language. '
     ]
   },
   {
     title: 'npm',
     Icon: NPMLogo,
-    descrition: [
+    description: [
       'NPM scripts.'
     ]
   },
   {
     title: 'Webpack',
     Icon: WebpackLogo,
-    descrition: []
+    description: []
   },
   {
     title: 'Babel',
     Icon: BabelLogo,
-    descrition: []
+    description: []
   },
   {
     title: 'PostCSS',
     Icon: PostCSSLogo,
-    descrition: []
+    description: []
   },
   {
     title: 'Tailwind',
     Icon: TailwindCSSLogo,
-    descrition: []
+    description: []
   },
   {
     title: 'Styled Components',
     Icon: StyledComponents,
-    descrition: []
+    description: []
   },
   {
     title: 'React Router',
     Icon: ReactRouter,
-    descrition: []
+    description: []
   },
   {
     title: 'Cryptography',
     Icon: CrytoIcon,
-    descrition: []
+    description: []
   },
   {
     title: 'OAuth',
     Icon: OAuthLogo,
-    descrition: []
+    description: []
   },
   {
     title: 'JWT',
     Icon: JWTLogo,
-    descrition: []
+    description: []
   },
   {
     title: 'Vim',
     Icon: VimLogo,
-    descrition: [
+    description: [
       'Vim can be something very usefull when some atipical editing directly in the server must happen.',
       'Most common vim commands.'
     ]
@@ -269,7 +273,7 @@ const developmentDetails = [
   {
     title: 'Photoshop',
     Icon: PhotoshopLogo,
-    descrition: [
+    description: [
       'Complete confortable with the software.',
       'Intermediary image manipulations.'
     ]
@@ -277,7 +281,7 @@ const developmentDetails = [
   {
     title: 'Illustrator',
     Icon: IllustratorLogo,
-    descrition: [
+    description: [
       'Complete confortable with the software.',
       'Intermediary vector skills.'
     ]

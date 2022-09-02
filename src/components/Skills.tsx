@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
-import { skillsDetails, skillsPresentation } from "../content/skills";
+import React, { useEffect, useState } from "react";
+import { ITitledIcon } from "../content/projects";
+import { ISkillPresentation, skillsDetails, skillsPresentation } from "../content/skills";
 import Container from "./Container";
 import SectionTitle from "./SectionTitle";
 
-export default function Skills() {
+export default function Skills(): JSX.Element {
 
   return (
     <section className="">
@@ -20,7 +21,7 @@ export default function Skills() {
   )
 }
 
-function DesignThinkingSection() {
+function DesignThinkingSection(): JSX.Element {
   return (
     <Container>
       <SkillContainerTitle title={skillsPresentation.designThinking.title} Icon={skillsPresentation.designThinking.Icon}/>
@@ -35,7 +36,7 @@ function DesignThinkingSection() {
   )
 }
 
-function DevelopmentSection() {
+function DevelopmentSection(): JSX.Element {
   const [selectedSkill, setSelectedSkill] = useState<number|null>(null);
   return (
     <Container className="row-span-2 flex flex-col xl:flex-col 2xl:flex-row">
@@ -51,7 +52,14 @@ function DevelopmentSection() {
   )
 }
 
-function SkillList({selectedSkill, setSelectedSkill}:any) {
+type selectedSkillTypes = {
+  selectedSkill: number|null
+  setSelectedSkill: React.Dispatch<React.SetStateAction<number|null>>
+  rowConfig?: [number, number, string]
+}
+
+
+function SkillList({selectedSkill, setSelectedSkill}:selectedSkillTypes): JSX.Element {
   const [screenSize, setScreenSize] = useState<string>('lg')
   const skillIconClassName = 'fill-red-400 inline-block opacity-75 hover:scale-110 transition-all hover:opacity-100'
   const structureConfig = { 
@@ -98,7 +106,7 @@ function SkillList({selectedSkill, setSelectedSkill}:any) {
         Array(structureConfig.length).fill(null).map((val, row) => {
           const rowConfig = structureConfig[row];
           return (
-            <SkillsIconRow {...{rowConfig, selectedSkill, setSelectedSkill}} />
+            <SkillsIconRow {...{ rowConfig, selectedSkill, setSelectedSkill }} />
           )
         })
       }
@@ -106,7 +114,10 @@ function SkillList({selectedSkill, setSelectedSkill}:any) {
   )
 }
 
-function SkillsIconRow({selectedSkill, setSelectedSkill, rowConfig}:any) {
+function SkillsIconRow({selectedSkill, setSelectedSkill, rowConfig}:selectedSkillTypes): JSX.Element {
+  if (rowConfig == null)
+    return <>'Something went wrong!'</>
+
   const [start, end, boxClass] = rowConfig;
   return (
     <div className={'grid items-center justify-center'} style={{gridTemplateColumns:`repeat(${end-start}, minmax(0, 1fr))`}}>
@@ -137,7 +148,7 @@ function SkillsIconRow({selectedSkill, setSelectedSkill, rowConfig}:any) {
   )
 }
 
-function DevelopmentSectionDetailBox({selectedSkill}:any) {
+function DevelopmentSectionDetailBox({ selectedSkill }: { selectedSkill:number|null }): JSX.Element {
   if (selectedSkill == null)
     return (
       <div className="flex justify-center items-center dark:bg-gray-650 bg-gray-300 2xl:w-96 w-full rounded-lg shrink-0 2xl:h-full h-[calc(100%-26rem)] border border-2 border-dashed border-gray-400 shadow-inner shadow-[#0006]">
@@ -148,12 +159,13 @@ function DevelopmentSectionDetailBox({selectedSkill}:any) {
         </span>
       </div>
     );
-
+  
+  const skillDescription = skillsDetails.development[selectedSkill].description as string[];
   return (
     <Container className="2xl:w-96 w-full shrink-0 2xl:h-full h-[calc(100%-26rem)]">
       <h2 className="text-3xl font-bold mb-4">{skillsDetails.development[selectedSkill].title}</h2>
       {
-        skillsDetails.development[selectedSkill].descrition.map((item) => (
+        skillDescription.map((item) => (
           <p className="m-2">&#8857; {item}.</p>
         ))
       }
@@ -161,8 +173,12 @@ function DevelopmentSectionDetailBox({selectedSkill}:any) {
   )
 }
 
-function SecuritySection() {  
-  const [detailsContainer, setDetailsContainer] = useState<any>(null);
+interface IDetailsContainer extends ISkillPresentation {
+  position: number
+}
+
+function SecuritySection(): JSX.Element {  
+  const [detailsContainer, setDetailsContainer] = useState<IDetailsContainer|null>(null);
 
   return (
     <Container className={'relative'}>
@@ -177,7 +193,14 @@ function SecuritySection() {
         <div className="relative z-4 mt-4">
           {
             skillsDetails.security.map((skill, index) => (
-              <SecuritySectionIcon className="transition-all" style={{transform: detailsContainer?.position === index ? 'scale(1.1)' : ''}} Icon={skill.Icon} details={{...skill, position: index}} setDetailsContainer={setDetailsContainer} />  
+              <div 
+                className={"inline-block p-2 transition-all"} 
+                onMouseEnter={() => setDetailsContainer({...skill, position: index})} 
+                onMouseLeave={() => setDetailsContainer(null)} 
+                style={{transform: detailsContainer?.position === index ? 'scale(1.1)' : ''}}
+              >
+                <skill.Icon className={'w-10 fill-red-400 inline-block'} />
+              </div>
             ))
           }
         </div>
@@ -185,16 +208,7 @@ function SecuritySection() {
   )
 }
 
-function SecuritySectionIcon({Icon, children, className, style, details, setDetailsContainer}:any) {
-  return (
-    <div className={"inline-block p-2 "+className} onMouseEnter={() => setDetailsContainer(details)} onMouseLeave={() => setDetailsContainer(null)} style={style}>
-      <Icon className={'w-10 fill-red-400 inline-block'} />
-    </div>
-  )
-}
-
-
-function SkillContainerTitle({title, Icon}:any) {
+function SkillContainerTitle({title, Icon}:ITitledIcon): JSX.Element {
   return (
     <div className="mb-4">        
       <Icon className={'w-10 fill-red-400 inline-block'}/>
