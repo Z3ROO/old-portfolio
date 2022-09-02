@@ -40,13 +40,15 @@ export default function GreetingSection() {
       canvasWidth: canvasRef.offsetWidth,
       canvasHeight: canvasRef.offsetHeight,
       xDots: 72,
-      yDots: 68,
+      yDots: 40,
       color: '#f87171',
       horizonAngle: .2,
-      centerPosition: .2,
+      centerPosition: .3,
       waveDelay: 4,
       hollowDots: 3,
-      wavePattern: 'outside-in'
+      wavePattern: 'inside-out',
+      waveMaxHeight: 50,
+      frameQtd:60
     })
     wave.init();
   }, [greetingOn]);

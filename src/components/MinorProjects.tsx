@@ -20,13 +20,13 @@ export default function MinorProjects() {
 }
 
 function MinorProject({project}:any) {
-  let {title, description} = project;
+  let {title, description, Icon} = project;
   if (title.length > 18)
     title = title.substring(0,18)+'...'
     
   return (
     <Container className="w-60 mr-4">
-      <ReactLogo className="w-48 h-48 fill-red-400"/>
+      <Icon className="w-48 h-48 fill-red-400"/>
       <div className="flex flex-col">
         <div className="flex-grow h-[5.5rem] overflow-hidden mb-2">
           <h2 className="font-bold text-lg">{title}</h2>

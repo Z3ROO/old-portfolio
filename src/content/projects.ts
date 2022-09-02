@@ -1,4 +1,4 @@
-import { BrowserIcon, CodeLibIcon, CommandLineIcon, ComputerScreenIcon, NodeLogo, PackageIcon, ReactLogo, SmartphoneScreenIcon, TailwindCSSLogo, TypescriptLogo } from "../lib/icons";
+import { BringSendLogo, BrowserIcon, CodeLibIcon, CommandLineIcon, ComputerScreenIcon, MarkdownLogo, NodeLogo, PackageIcon, ReactLogo, SmartphoneScreenIcon, SudokuBoardIcon, SynthWaveLogo, TailwindCSSLogo, TypescriptLogo } from "../lib/icons";
 
 export const projects = [
   {
@@ -155,6 +155,7 @@ export const minorProjects = [
   {
     title: 'Sudoku board generator',
     description: 'Generates a perfect sudoku board.',
+    Icon: SudokuBoardIcon,
     links: {
       github: '',
       npm: ''
@@ -163,6 +164,7 @@ export const minorProjects = [
   {
     title: 'Markdown Parser',
     description: 'Generates a markdown of html.',
+    Icon: MarkdownLogo,
     links: {
       github: '',
       npm: ''
@@ -171,6 +173,16 @@ export const minorProjects = [
   {
     title: 'Bring/Send',
     description: 'Utility tool for wsl users to easily bring and send files between windows and wsl.',
+    Icon: BringSendLogo,
+    links: {
+      github: '',
+      npm: ''
+    }
+  },
+  {
+    title: 'SynthWave',
+    description: 'Configurable canvas animations that simulates some simple wave motion.',
+    Icon: SynthWaveLogo,
     links: {
       github: '',
       npm: ''
