@@ -4,13 +4,14 @@ const backgroundColor = [
   "dark:fill-gray-700 fill-gray-200"
 ]
 
-interface IconType extends SVGProps<SVGSVGElement> {
+export interface IconType extends SVGProps<SVGSVGElement> {
   className?:string
   background?:number
 }
 
+export type ISVGIcon = (props:IconType) => JSX.Element
 
-export function DevicesScreen({className, background, ...defaultProps}: IconType) {
+export function DevicesScreen({className, background, ...defaultProps}: IconType): JSX.Element {
   return (
     <svg className={className} {...defaultProps} x="0px" y="0px" viewBox="0 0 1000 1000">
       <g>

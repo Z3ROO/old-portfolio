@@ -1,19 +1,19 @@
-import { projects } from "../content/projects";
+import { Iproject, ITitledIcon, projects } from "../content/projects";
 import Container from "./Container";
 import SectionTitle from "./SectionTitle";
 
-export default function Projects() {
+export default function Projects(): JSX.Element {
   return  <>
             <SectionTitle title='Projects' />
             {
-              projects.map((proj) => (
-                <Project project={proj} />
+              projects.map((project) => (
+                <Project {...{project}} />
               ))
             }
           </>
 }
 
-function Project({project}: any) {
+function Project({project}: {project: Iproject}): JSX.Element {
 
   return  <Container className="flex my-6">
             <div className="p-2 flex flex-col flex-grow">
@@ -27,12 +27,12 @@ function Project({project}: any) {
           </Container>
 }
 
-function ProjectTitle({project}:any) {
+function ProjectTitle({project}: {project: Iproject}): JSX.Element {
   return (
     <div>
       <h2 className="text-3xl font-bold mr-4 inline-block">{project.title}</h2>
       <div className="inline-flex self-end align-bottom">
-        {project.screens.map((item: any) => (
+        {project.screens.map((item) => (
           <button className="relative group">
             <item.Icon className="w-8 m-1 fill-red-400" />
             <BounceInfoTag item={item} />
@@ -43,7 +43,7 @@ function ProjectTitle({project}:any) {
   )
 }
 
-function ProjectSpecs({project}:any) {
+function ProjectSpecs({project}:{project: Iproject}): JSX.Element {
   return (
     <div className={`flex flex-col`}>
       <div className={`flex m-2`}>
@@ -62,13 +62,13 @@ function ProjectSpecs({project}:any) {
   )
 }
 
-function ProjectPreview() {
+function ProjectPreview(): JSX.Element {
   return (
     <div className={`w-[640px] h-[360px] bg-red-800 shrink-0 `}></div>
   )
 }
 
-function BounceInfoTag({item}:any) {
+function BounceInfoTag({item}:{item: ITitledIcon}): JSX.Element {
 
   return (
     <div className="absolute hidden group-hover:block group-hover:bounce text-white bg-red-400 px-2 py-1 rounded -top-10 left-0 whitespace-nowrap">

@@ -1,6 +1,23 @@
-import { BringSendLogo, BrowserIcon, CodeLibIcon, CommandLineIcon, ComputerScreenIcon, MarkdownLogo, NodeLogo, PackageIcon, ReactLogo, SmartphoneScreenIcon, SudokuBoardIcon, SynthWaveLogo, TailwindCSSLogo, TypescriptLogo } from "../lib/icons";
+import { BringSendLogo, BrowserIcon, CommandLineIcon, ComputerScreenIcon, IconType, ISVGIcon, MarkdownLogo, NodeLogo, PackageIcon, ReactLogo, SmartphoneScreenIcon, SudokuBoardIcon, SynthWaveLogo, TailwindCSSLogo, TypescriptLogo } from "../lib/icons";
 
-export const projects = [
+export interface ITitledIcon {
+  title: string
+  Icon: ISVGIcon
+}
+
+export interface Iproject {
+  title: string
+  description: string
+  dependencies: ITitledIcon[]
+  screens: ITitledIcon[]
+  links: {
+    github: string
+    demo: string
+    details: string
+  }
+}
+
+export const projects: Iproject[] = [
   {
     title: 'ZNotes',
     description: 'A cross-platform note-taking app ',
@@ -151,7 +168,17 @@ export const projects = [
   }
 ];
 
-export const minorProjects = [
+export interface IminorProject {
+  title: string
+  description: string
+  Icon: ISVGIcon
+  links: {
+    github: string
+    npm: string
+  }
+}
+
+export const minorProjects: IminorProject[] = [
   {
     title: 'Sudoku board generator',
     description: 'Generates a perfect sudoku board.',
@@ -189,6 +216,3 @@ export const minorProjects = [
     }
   }
 ]
-
-//skills activated in the fundamentals with close button e click in the sele...
-//interactable things around the app - skyrim fork feeling
