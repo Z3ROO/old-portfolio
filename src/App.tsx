@@ -4,17 +4,19 @@ import MinorProjects from "./components/MinorProjects";
 import Projects from "./components/Projects";
 import Skills from "./components/Skills";
 
-function Controller() {
+interface IGlobalController{
+}
 
+function GlobalController(): IGlobalController {
   return {
-    
+
   }
 }
 
-export const ControllerContext = createContext<any>(null);
+export const GlobalControllerContext = createContext<IGlobalController|null>(null);
 
-function App() {
-  const controller = Controller();
+function App(): JSX.Element {
+  const controller = GlobalController();
 
   useEffect(() => {
     if (localStorage.getItem('colorMode') === 'dark') {
@@ -23,22 +25,27 @@ function App() {
   },[]);
 
   return (
-    <div className="w-full dark:bg-gray-800 dark:text-white">
-      <ControllerContext.Provider value={controller} >
+    <div className={`w-full dark:bg-gray-800 dark:text-white`}>
+      <GlobalControllerContext.Provider value={controller} >
         <GreetingSection />
         <div className="flex">
-          <div className="w-1/12 2xl:w-2/12">
-
+          <div className={`
+            w-1/12 
+            2xl:w-2/12
+          `}>
           </div>
-          <div className="w-11/12 pr-16 max-w-[1440px] 2xl:10/12 2xl:pl-2 2xl:pr-14">
+          <div className={`
+            w-11/12 pr-16 max-w-[1440px] 
+            2xl:10/12 2xl:pl-2 2xl:pr-14
+          `}>
             <Projects />
             <MinorProjects />
             <Skills />
-            <div className="h-96">
+            <div className={`h-96`}>
             </div>
           </div>
         </div>
-      </ControllerContext.Provider>
+      </GlobalControllerContext.Provider>
     </div>
   );
 }
