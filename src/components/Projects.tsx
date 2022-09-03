@@ -73,7 +73,7 @@ function BounceInfoTag({item}:{item: ITitledIcon}): JSX.Element {
   return (
     <div className="absolute hidden group-hover:block group-hover:bounce text-white bg-red-400 px-2 py-1 rounded -top-10 left-0 whitespace-nowrap">
       {item.title}
-      <div className="absolute w-0 h-0 border border-8 border-red-400 border-b-transparent border-r-transparent border-l-transparent ml-1"></div>
+      <div className="absolute w-0 h-0 border-8 border-red-400 border-b-transparent border-r-transparent border-l-transparent ml-1"></div>
     </div>
   )
 }

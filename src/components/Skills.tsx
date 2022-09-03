@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { ITitledIcon } from "../content/projects";
 import { ISkillPresentation, skillsDetails, skillsPresentation } from "../content/skills";
 import useScreenSize from "../lib/hooks/useScreenSize";
@@ -129,7 +129,7 @@ function SkillsIconRow({selectedSkill, setSelectedSkill, rowConfig}:selectedSkil
 function DevelopmentSectionDetailBox({ selectedSkill }: { selectedSkill:number|null }): JSX.Element {
   if (selectedSkill == null)
     return (
-      <div className="flex justify-center items-center dark:bg-gray-650 bg-gray-300 2xl:w-96 w-full rounded-lg shrink-0 2xl:h-full h-[calc(100%-26rem)] border border-2 border-dashed border-gray-400 shadow-inner shadow-[#0006]">
+      <div className="flex justify-center items-center dark:bg-gray-650 bg-gray-300 2xl:w-96 w-full rounded-lg shrink-0 2xl:h-full h-[calc(100%-26rem)] border-2 border-dashed border-gray-400 shadow-inner shadow-[#0006]">
         <span className="inline-block text-center text-2xl select-none opacity-60">
           Click in one of the icons
           <br />
