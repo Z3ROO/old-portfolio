@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-type ScreenSizeType = 'xs'|'sm'|'mg'|'lg'|'xl'|'2xl';
+type ScreenSizeType = 'xs'|'sm'|'md'|'lg'|'xl'|'2xl';
 
 export default function useScreenSize(initialValue:ScreenSizeType) {
   const [screenSize, setScreenSize] = useState<ScreenSizeType>(initialValue);
@@ -12,7 +12,7 @@ export default function useScreenSize(initialValue:ScreenSizeType) {
       else if (window.innerWidth < 768)
         setScreenSize('sm');
       else if (window.innerWidth < 1024)
-        setScreenSize('mg');
+        setScreenSize('md');
       else if (window.innerWidth < 1280)
         setScreenSize('lg');
       else if (window.innerWidth < 1536)
