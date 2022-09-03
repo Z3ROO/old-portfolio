@@ -25,7 +25,7 @@ function App(): JSX.Element {
   },[]);
 
   return (
-    <div className={`w-full dark:bg-gray-800 dark:text-white`}>
+    <div className={`w-full overflow-x-hidden dark:bg-gray-800 dark:text-white`}>
       <GlobalControllerContext.Provider value={controller} >
         <GreetingSection />
         <div className="flex">
