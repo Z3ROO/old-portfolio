@@ -1,7 +1,7 @@
-import { IminorProject, minorProjects } from "../content/projects";
-import { GitLogo, NPMLogo } from "../lib/icons";
-import Container from "./Container";
-import SectionTitle from "./SectionTitle";
+import { IminorProject, minorProjects } from "../../content/projects";
+import { GitLogo, NPMLogo } from "../../lib/icons";
+import Container from "../atomic/Container";
+import SectionTitle from "../atomic/SectionTitle";
 
 export default function MinorProjects(): JSX.Element {
   return (

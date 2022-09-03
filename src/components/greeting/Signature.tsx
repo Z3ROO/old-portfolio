@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { DevicesScreen } from '../lib/icons';
+import { DevicesScreen } from '../../lib/icons';
 
 export default function Signature(): JSX.Element {
   

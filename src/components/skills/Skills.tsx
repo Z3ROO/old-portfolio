@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { ITitledIcon } from "../content/projects";
-import { ISkillPresentation, skillsDetails, skillsPresentation } from "../content/skills";
-import useScreenSize from "../lib/hooks/useScreenSize";
-import Container from "./Container";
-import SectionTitle from "./SectionTitle";
+import { ITitledIcon } from "../../content/projects";
+import { ISkillPresentation, skillsDetails, skillsPresentation } from "../../content/skills";
+import useScreenSize from "../../lib/hooks/useScreenSize";
+import Container from "../atomic/Container";
+import SectionTitle from "../atomic/SectionTitle";
 
 export default function Skills(): JSX.Element {
 

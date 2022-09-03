@@ -1,9 +1,9 @@
 import Signature from "./Signature";
-import { DesignThinkingIcon, HackerIcon, JsLogo } from "../lib/icons";
-import useOnWheel from "../lib/hooks/useOnWheel";
+import { DesignThinkingIcon, HackerIcon, JsLogo } from "../../lib/icons";
+import useOnWheel from "../../lib/hooks/useOnWheel";
 import { useEffect, useRef, useState } from "react";
 import {Wave} from "@z3ro/synthwave";
-import { MoonIcon, SunIcon } from '../lib/icons';
+import { MoonIcon, SunIcon } from '../../lib/icons';
 
 
 export default function GreetingSection(): JSX.Element {

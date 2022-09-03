@@ -1,6 +1,6 @@
-import { Iproject, ITitledIcon, projects } from "../content/projects";
-import Container from "./Container";
-import SectionTitle from "./SectionTitle";
+import { Iproject, ITitledIcon, projects } from "../../content/projects";
+import Container from "../atomic/Container";
+import SectionTitle from "../atomic/SectionTitle";
 
 export default function Projects(): JSX.Element {
   return  <>

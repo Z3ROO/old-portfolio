@@ -1,4 +1,4 @@
-import OutlineText from "../lib/OutlineText";
+import OutlineText from "../../lib/OutlineText";
 
 export default function SectionTitle({title}:any) {
   return (

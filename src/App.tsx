@@ -1,8 +1,8 @@
 import { createContext, useEffect } from "react";
-import GreetingSection from "./components/GreetingSection";
-import MinorProjects from "./components/MinorProjects";
-import Projects from "./components/Projects";
-import Skills from "./components/Skills";
+import GreetingSection from "./components/greeting/GreetingSection";
+import MinorProjects from "./components/projects/MinorProjects";
+import Projects from "./components/projects/Projects";
+import Skills from "./components/skills/Skills";
 
 interface IGlobalController{
 }
