@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { ITitledIcon } from "../content/projects";
 import { ISkillPresentation, skillsDetails, skillsPresentation } from "../content/skills";
+import useScreenSize from "../lib/hooks/useScreenSize";
 import Container from "./Container";
 import SectionTitle from "./SectionTitle";
 
@@ -58,9 +59,8 @@ type selectedSkillTypes = {
   rowConfig?: [number, number, string]
 }
 
-
 function SkillList({selectedSkill, setSelectedSkill}:selectedSkillTypes): JSX.Element {
-  const [screenSize, setScreenSize] = useState<string>('lg')
+  const screenSize = useScreenSize('lg');
   const skillIconClassName = 'fill-red-400 inline-block opacity-75 hover:scale-110 transition-all hover:opacity-100'
   const structureConfig = { 
     fiveRowsStructureConfig : [
@@ -76,29 +76,7 @@ function SkillList({selectedSkill, setSelectedSkill}:selectedSkillTypes): JSX.El
       [13,22, "w-9 m-2 "+skillIconClassName],
       [22,36, "w-6 m-2 "+skillIconClassName]
     ]
-  }[['xs','sm','md','lg','xl'].includes(screenSize) ? 'fourRowsStructureConfig' : 'fiveRowsStructureConfig'] as [number, number, string][]
-
-  useEffect(() => {
-    const handler = () => {
-      if (window.innerWidth < 640)
-        setScreenSize('xs');
-      else if (window.innerWidth < 768)
-        setScreenSize('sm');
-      else if (window.innerWidth < 1024)
-        setScreenSize('mg');
-      else if (window.innerWidth < 1280)
-        setScreenSize('lg');
-      else if (window.innerWidth < 1536)
-        setScreenSize('xl');
-      else if (window.innerWidth > 1536)
-        setScreenSize('2xl');
-    }
-    handler();
-    
-    window.addEventListener('resize', handler)
-
-    return () => window.removeEventListener('resize', handler)
-  },[])
+  }[['xs','sm','md','lg','xl'].includes(screenSize) ? 'fourRowsStructureConfig' : 'fiveRowsStructureConfig'] as [number, number, string][];
 
   return (
     <div className="px-2 pr-6 pb-4 relative flex flex-col justify-around flex-grow">
