@@ -3,14 +3,28 @@ import { DevicesScreen } from '../../lib/icons';
 
 export default function Signature(): JSX.Element {
   
-  return  <section>
-            <div className="p-8 pt-14 pb-20 poppins">
+  return  <section className="poppins">
               <Name />
-              <div className="flex select-none -mt-4">
-                <h2 className="xl:text-3xl 2xl:text-5xl align-top m-0 p-0 text-red-400">Front-end Developer</h2>
-                <DevicesScreen className="xl:w-8 2xl:w-10 mt-auto ml-4 fill-red-400"/>
+              <div className="flex select-none">
+                <h2 className={`
+                  align-top m-0 p-0 text-red-400 whitespace-pre-wrap
+                  text-[24px] inline
+                  sm:text-[28px]
+                  md:text-[32px]
+                  lg:text-[36px]
+                  xl:text-[40px]
+                  2xl:text-[44px]
+                `}>Front-end <br className='sm:hidden' />Developer</h2>
+                <DevicesScreen className={`
+                  fill-red-400 inline-block
+                  w-12 ml-3
+                  sm:w-6 sm:ml-4
+                  md:w-6
+                  lg:w-8
+                  xl:w-8 
+                  2xl:w-10 
+                `}/>
               </div>
-            </div>
           </section>
 }
 
@@ -82,9 +96,13 @@ function Name(): JSX.Element {
 
   return (
     <h1 className={`
-      align-top m-0 p-0 select-none
-      xl:text-[112px] 
-      2xl:text-[128px]  
+      align-top -mb-[.25em] select-none
+      text-[72px]
+      sm:text-[88px] 
+      md:text-[104px] 
+      lg:text-[120px] 
+      xl:text-[136px]  
+      2xl:text-[152px]  
     `}>
       Pe
       <span ref={thirdLetter} className={nameAnimatedLettersClassName}>d</span>

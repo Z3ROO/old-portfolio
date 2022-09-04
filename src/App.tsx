@@ -28,15 +28,17 @@ function App(): JSX.Element {
     <div className={`w-full overflow-x-hidden dark:bg-gray-800 dark:text-white`}>
       <GlobalControllerContext.Provider value={controller} >
         <GreetingSection />
-        <div className="flex">
+        <div className="flex justify-center">
           <div className={`
-            w-1/12 
-            2xl:w-2/12
+            w-2/12 hidden
+            sm:block
+            xl:w-1/12
           `}>
           </div>
           <div className={`
-            w-11/12 pr-16 max-w-[1440px] 
-            2xl:10/12 2xl:pl-2 2xl:pr-14
+            max-w-[1440px] w-full px-4
+            sm:w-10/12 sm:pr-4 
+            xl:11/12
           `}>
             <Projects />
             <MinorProjects />

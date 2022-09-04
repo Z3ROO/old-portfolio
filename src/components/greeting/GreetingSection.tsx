@@ -70,22 +70,23 @@ export default function GreetingSection(): JSX.Element {
       ref={GreetingSectionRef}
     >
       <div className={`
-        z-5 flex 
-        xl:m-16 
-        2xl:m-40
+        flex h-[40vh] items-center
+        ml-16
+        xl:ml-24
+        2xl:ml-32
       `}>
         <Signature />
-        <div className={`
-          xl:ml-0 xl:mt-20 
+        {/* <div className={`
+          xl:ml-0 xl:mt-0 
           2xl:ml-12 2xl:mt-40
         `}>
           <DesignThinkingIcon className={greetingPageSkillIconsClassName} />
           <JsLogo className={greetingPageSkillIconsClassName} />
           <HackerIcon className={greetingPageSkillIconsClassName} />
-        </div>
-      </div>  
+        </div> */}
+      </div>
+      {greetingOn && <canvas id="synth-wave-canvas" className="w-full h-[60vh]" ref={synthCanvasRef}></canvas>}
       <DarkModeButton />
-      {greetingOn && <canvas id="synth-wave-canvas" className="w-full h-[70vh] absolute -bottom-12" ref={synthCanvasRef}></canvas>}
     </div>          
   )
 }
