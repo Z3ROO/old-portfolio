@@ -37,7 +37,7 @@ function App(): JSX.Element {
           </div>
           <div className={`
             max-w-[1440px] w-full px-4
-            sm:w-10/12 sm:pr-4 
+            sm:w-10/12
             xl:11/12
           `}>
             <Projects />

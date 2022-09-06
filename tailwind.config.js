@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+const defualtTheme = require('tailwindcss');
+
 module.exports = {
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",
@@ -24,7 +26,17 @@ module.exports = {
         }
       }
     },
+    screens: {
+      '2xs': '360px',
+      'xs': '475px',
+      'sm': '640px',
+      'md': '768px',
+      'lg': '1024px',
+      'xl': '1280px',
+      '2xl': '1536px',
+    }
   },
+  variants: {},
   plugins: [],
   darkMode: 'class'
 }
