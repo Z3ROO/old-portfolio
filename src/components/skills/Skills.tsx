@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { ITitledIcon } from "../../content/projects";
 import { ISkillPresentation, skillsDetails, skillsPresentation } from "../../content/skills";
+import useOnScroll from "../../lib/hooks/useOnScroll";
 import useScreenSize from "../../lib/hooks/useScreenSize";
 import Container from "../atomic/Container";
 import SectionTitle from "../atomic/SectionTitle";
@@ -11,8 +12,8 @@ export default function Skills(): JSX.Element {
     <section className="">
       <SectionTitle title="Skills" />
       <div className={`
-        grid grid-cols-[1fr] grid-rows-[1fr_1fr_1fr] gap-6
-        lg:grid-cols-[3fr_5fr] lg:grid-rows-[7fr_5fr]
+        grid grid-cols-[1fr] grid-rows-[auto-fit_auto-fit_auto-fit] gap-6
+        xl:grid-cols-[3fr_5fr] xl:grid-rows-[7fr_5fr]
       `}>
         <DesignThinkingSection />
         <DevelopmentSection />
@@ -24,7 +25,7 @@ export default function Skills(): JSX.Element {
 
 function DesignThinkingSection(): JSX.Element {
   return (
-    <Container>
+    <Container className="row-span-1">
       <SkillContainerTitle title={skillsPresentation.designThinking.title} Icon={skillsPresentation.designThinking.Icon}/>
       <p className="text-lg p-2">
         {skillsPresentation.designThinking.description}
@@ -39,8 +40,14 @@ function DesignThinkingSection(): JSX.Element {
 
 function DevelopmentSection(): JSX.Element {
   const [selectedSkill, setSelectedSkill] = useState<number|null>(null);
+  const screenSize = useScreenSize();
+
   return (
-    <Container className="row-span-2 flex flex-col xl:flex-col 2xl:flex-row">
+    <Container className={`
+      sm:row-span-2 flex flex-col 
+      lg:flex-row 
+      xl:flex-col 2xl:flex-row
+      `}>
       <div className="flex flex-col">
         <SkillContainerTitle title={skillsPresentation.development.title} Icon={skillsPresentation.development.Icon} />
         <p className="text-lg px-2 mb-4">
@@ -48,7 +55,11 @@ function DevelopmentSection(): JSX.Element {
         </p>
         <SkillList selectedSkill={selectedSkill} setSelectedSkill={setSelectedSkill} />
       </div>
-      <DevelopmentSectionDetailBox selectedSkill={selectedSkill}/>
+      {
+        !['2xs','xs'].includes(screenSize) ?
+        <DevelopmentSectionDetailBox selectedSkill={selectedSkill}/> :
+        selectedSkill && <MobileDevelopmentSectionDetailBox selectedSkill={selectedSkill} setSelectedSkill={setSelectedSkill}/>
+      }
     </Container>
   )
 }
@@ -60,23 +71,21 @@ type selectedSkillTypes = {
 }
 
 function SkillList({selectedSkill, setSelectedSkill}:selectedSkillTypes): JSX.Element {
-  const screenSize = useScreenSize('lg');
+  const screenSize = useScreenSize();
   const skillIconClassName = 'fill-red-400 inline-block opacity-75 hover:scale-110 transition-all hover:opacity-100'
   const structureConfig = { 
     fiveRowsStructureConfig : [
-      [0,5, "w-16 m-3 "+skillIconClassName],
-      [5,11, "w-14 m-3 "+skillIconClassName],
-      [12,20, "w-12 m-2 "+skillIconClassName],
-      [20,30, "w-10 m-2 "+skillIconClassName],
-      [30,42, "w-8 m-2 "+skillIconClassName]
+      [0,3, "w-16 m-3 "+skillIconClassName],
+      [3,6, "w-16 m-3 "+skillIconClassName],
+      [6,9, "w-16 m-3 "+skillIconClassName],
+      [9,12, "w-16 m-3 "+skillIconClassName]
     ],
     fourRowsStructureConfig : [
-      [0,6, "w-16 m-3 "+skillIconClassName],
-      [6,13, "w-12 m-3 "+skillIconClassName],
-      [13,22, "w-9 m-2 "+skillIconClassName],
-      [22,36, "w-6 m-2 "+skillIconClassName]
+      [0,4, "w-16 m-3 "+skillIconClassName],
+      [4,8, "w-16 m-3 "+skillIconClassName],
+      [8,12, "w-16 m-3 "+skillIconClassName]
     ]
-  }[['xs','sm','md','lg','xl'].includes(screenSize) ? 'fourRowsStructureConfig' : 'fiveRowsStructureConfig'] as [number, number, string][];
+  }[['sm','md','xl'].includes(screenSize) ? 'fourRowsStructureConfig' : 'fiveRowsStructureConfig'] as [number, number, string][];
 
   return (
     <div className="px-2 pr-6 pb-4 relative flex flex-col justify-around flex-grow">
@@ -106,7 +115,7 @@ function SkillsIconRow({selectedSkill, setSelectedSkill, rowConfig}:selectedSkil
               return (
                 <button className="flex justify-center">
                   <Container level={2} noPad>
-                    <skill.Icon className={boxClass} style={{opacity:1, transform:'scale(1.1)'}} onClick={() => setSelectedSkill(null)}/>
+                    <skill.Icon className={boxClass+' '} style={{opacity:1, transform:'scale(1.1)'}} onClick={() => setSelectedSkill(null)}/>
                   </Container>
                 </button>
               )
@@ -114,7 +123,7 @@ function SkillsIconRow({selectedSkill, setSelectedSkill, rowConfig}:selectedSkil
             else
               return (
                 <button className="flex justify-center">
-                  <skill.Icon className={boxClass} onClick={() => setSelectedSkill(index)}/>
+                  <skill.Icon className={boxClass+' '} onClick={() => setSelectedSkill(index)}/>
                 </button>
               )
           }
@@ -129,18 +138,39 @@ function SkillsIconRow({selectedSkill, setSelectedSkill, rowConfig}:selectedSkil
 function DevelopmentSectionDetailBox({ selectedSkill }: { selectedSkill:number|null }): JSX.Element {
   if (selectedSkill == null)
     return (
-      <div className="flex justify-center items-center dark:bg-gray-650 bg-gray-300 2xl:w-96 w-full rounded-lg shrink-0 2xl:h-full h-[calc(100%-26rem)] border-2 border-dashed border-gray-400 shadow-inner shadow-[#0006]">
-        <span className="inline-block text-center text-2xl select-none opacity-60">
+      <div className={`
+        flex grow justify-center items-center dark:bg-gray-650 bg-gray-300 rounded-lg shrink-0 
+        border-2 border-dashed border-gray-400 shadow-inner shadow-[#0006]
+        h-auto w-full
+        lg:w-96 lg:h-full
+        xl:w-full xl:h-auto
+        2xl:w-96 2xl:h-full
+      `}>
+        <span className="inline-block text-center text-2xl select-none opacity-60 py-10">
+          <span className={`
+            text-7xl
+            lg:hidden xl:inline 2xl:hidden
+          `}>&#11014;<br/></span>
           Click in one of the icons
           <br />
-          <span className="text-7xl">&#11013;</span>
+          <span className={`
+            text-7xl
+            hidden
+            lg:inline xl:hidden 2xl:inline
+          `}>&#11013;</span>
         </span>
       </div>
     );
   
   const skillDescription = skillsDetails.development[selectedSkill].description as string[];
   return (
-    <Container className="2xl:w-96 w-full shrink-0 2xl:h-full h-[calc(100%-26rem)]">
+    <Container className={`
+      w-full shrink-0
+      h-auto grow
+      lg:w-96 lg:h-full 
+      xl:w-full xl:h-auto
+      2xl:w-96 2xl:h-full 
+    `}>
       <h2 className="text-3xl font-bold mb-4">{skillsDetails.development[selectedSkill].title}</h2>
       {
         skillDescription.map((item) => (
@@ -151,6 +181,32 @@ function DevelopmentSectionDetailBox({ selectedSkill }: { selectedSkill:number|n
   )
 }
 
+function MobileDevelopmentSectionDetailBox({ selectedSkill, setSelectedSkill }: { selectedSkill:number|null, setSelectedSkill: React.Dispatch<React.SetStateAction<number | null>> }): JSX.Element | null {
+  if (selectedSkill == null)
+    return null;
+  
+  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+  
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  useOnScroll((event) => {    
+    window.scrollTo(scrollLeft, scrollTop);
+  });
+  
+  const skillDescription = skillsDetails.development[selectedSkill].description as string[];
+  return (
+    <div onClick={() => setSelectedSkill(null)} className={`
+      fixed h-screen w-full top-0 left-0 bg-red-400 text-white dark:bg-gray-700 dark:text-red-400 z-50 px-8 py-12
+      `}>
+      <h2 className="text-3xl font-bold mb-4">{skillsDetails.development[selectedSkill].title}</h2>
+      {
+        skillDescription.map((item) => (
+          <p className="m-2">&#8857; {item}.</p>
+        ))
+      }
+    </div>
+  )
+}
 interface IDetailsContainer extends ISkillPresentation {
   position: number
 }
