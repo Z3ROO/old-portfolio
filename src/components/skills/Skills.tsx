@@ -246,25 +246,28 @@ function SecuritySection(): JSX.Element {
   const [detailsContainer, setDetailsContainer] = useState<IDetailsContainer|null>(null);
 
   return (
-    <Container className={'relative'}>
+    <Container className={'relative flex flex-col h-96 2xs:h-80 md:h-72 xl:h-auto'}>
         <SkillContainerTitle title={skillsPresentation.security.title} Icon={skillsPresentation.security.Icon} />
-        <p className="text-lg">
-          {skillsPresentation.security.description}
-        </p>
-        {detailsContainer && <div className="skill-detail-container overflow-hidden">
-          <h2 className="text-2xl font-bold mb-2 ml-2">{detailsContainer.title}</h2>
-          {detailsContainer.description}
-        </div>}
-        <div className="relative z-4 mt-4">
+        <div className="text-lg grow">
+          {
+            detailsContainer ? 
+            <>
+              <h4 className="font-medium text-xl">{detailsContainer.title}</h4>
+              <p>{detailsContainer.description}</p>
+            </> :
+            <p>{skillsPresentation.security.description}</p>
+          }
+        </div>
+        <div className="relative z-4">
           {
             skillsDetails.security.map((skill, index) => (
               <div 
-                className={"inline-block p-2 transition-all"} 
+                className={"inline-block p-1 sm:p-2 transition-all"} 
                 onMouseEnter={() => setDetailsContainer({...skill, position: index})} 
                 onMouseLeave={() => setDetailsContainer(null)} 
-                style={{transform: detailsContainer?.position === index ? 'scale(1.1)' : ''}}
+                style={{transform: detailsContainer?.position === index ? 'scale(1.15)' : ''}}
               >
-                <skill.Icon className={'w-10 fill-red-400 inline-block'} />
+                <skill.Icon className={'w-7 2xs:w-9 sm:w-10 fill-red-400 inline-block'} />
               </div>
             ))
           }
