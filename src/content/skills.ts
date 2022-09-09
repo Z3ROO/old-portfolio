@@ -1,8 +1,9 @@
-import { BurpLogo, OwaspLogo, WebProtectionIcon, HTMLLogo, CSSLogo, JsLogo, ReactLogo, ElectronJSLogo, PostgresLogo, MongoLogo, OSIcon, NetworkIcon, FundamentalsIcon, GraphQlLogo, NextJSLogo, GitLogo, RedisLogo, DockerLogo, JestLogo, GitLabLogo, CachingIcon, LinuxLogo, BashLogo, NPMLogo, WebpackLogo, BabelLogo, PostCSSLogo, TailwindCSSLogo, StyledComponents, ReactRouter, CrytoIcon, OAuthLogo, JWTLogo, VimLogo, PhotoshopLogo, IllustratorLogo, HackerIcon, DevelopmentIcon, DesignThinkingIcon } from "../lib/icons";
+import { BurpLogo, OwaspLogo, WebProtectionIcon, HTMLLogo, CSSLogo, JsLogo, ReactLogo, ElectronJSLogo, PostgresLogo, MongoLogo, OSIcon, NetworkIcon, FundamentalsIcon, GraphQlLogo, NextJSLogo, GitLogo, RedisLogo, DockerLogo, JestLogo, GitLabLogo, LinuxLogo, BashLogo, NPMLogo, WebpackLogo, BabelLogo, PostCSSLogo, TailwindCSSLogo, StyledComponents, ReactRouter, CrytoIcon, OAuthLogo, JWTLogo, VimLogo, PhotoshopLogo, IllustratorLogo, HackerIcon, DevelopmentIcon, DesignThinkingIcon, SEOIcon, DatabaseIcon, DesignIcon, CICDIcon } from "../lib/icons";
 import { ITitledIcon } from "./projects";
 
 export interface ISkillPresentation extends ITitledIcon {
   description: string|string[]
+  innerIcons?: ITitledIcon[]
 }
 
 const designThinkingPresentation: ISkillPresentation = {
@@ -45,6 +46,21 @@ const securityDetails: ISkillPresentation[] = [
     title:'Browser Security',
     Icon: WebProtectionIcon,
     description: 'Able to deal, respect and or implement browser security mechanisms like CORS, SOP, CSP etc.'
+  },
+  {
+    title: 'Cryptography',
+    Icon: CrytoIcon,
+    description: ''
+  },
+  {
+    title: 'oAuth',
+    Icon: OAuthLogo,
+    description: ''
+  },
+  {
+    title: 'JWT',
+    Icon: JWTLogo,
+    description: ''
   }
 ]
 
@@ -57,6 +73,16 @@ const developmentDetails: ISkillPresentation[] = [
       'Strong logical thinking.',
       'Data structures and Algorithms.',
       'Visualize code end-result.'
+    ],
+    innerIcons: [
+      {
+        Icon: GitLogo,
+        title: 'Git'
+      },
+      {
+        title: 'Docker',
+        Icon: DockerLogo
+      }
     ]
   },
   {
@@ -67,6 +93,12 @@ const developmentDetails: ISkillPresentation[] = [
       'Semantic structure.',
       'SEO.',
       'Basics of accessibility.'
+    ],
+    innerIcons: [
+      {
+        title: 'SEO',
+        Icon: SEOIcon
+      }
     ]
   },
   {
@@ -76,6 +108,20 @@ const developmentDetails: ISkillPresentation[] = [
       'Box Model, flexbox, grid.',
       'Responsive design.',
       'Basics of SASS.'
+    ],
+    innerIcons: [
+      {
+        title: 'Tailwind CSS',
+        Icon: TailwindCSSLogo
+      },
+      {
+        title: 'Styled Components',
+        Icon: StyledComponents
+      },
+      {
+        title: 'PostCSS',
+        Icon: PostCSSLogo
+      }
     ]
   },
   {
@@ -87,6 +133,24 @@ const developmentDetails: ISkillPresentation[] = [
       'Promises, async/await.',
       'Core concepts: CallStack, EventLoop, hoisting, closure etc.',
       'DOM manipulations, fetch.'
+    ],
+    innerIcons: [
+      {
+        title: 'NPM',
+        Icon: NPMLogo
+      },
+      {
+        title: 'Babel',
+        Icon: BabelLogo
+      },
+      {
+        title: 'Webpack',
+        Icon: WebpackLogo
+      },
+      {
+        title: 'NextJS',
+        Icon: NextJSLogo
+      }
     ]
   },
   {
@@ -98,34 +162,43 @@ const developmentDetails: ISkillPresentation[] = [
       'Complete understanding of hooks.',
       'core concepts: Reconciliation algorithm, state update etc.',
       'Overall understanding of class components.'
+    ],
+    innerIcons: [
+      {
+        title: 'ElectronJS',
+        Icon: ElectronJSLogo
+      },
+      {
+        title: 'React Router',
+        Icon: ReactRouter
+      }
     ]
   },
   {
-    title: 'ElectronJS',
-    Icon: ElectronJSLogo,
+    title: 'Storage/Retrieval',
+    Icon: DatabaseIcon,
     description: [
-      'Create fully functional desktop apps'
-    ]
-  },
-  {
-    title: 'SQL',
-    Icon: PostgresLogo,
-    description: [
-      'PostgreSQL',
-      'Complex CRUD operations',
-      'Transations',
-      'Migrations and migration tecniques',
-      'CLI: psql, ...'
-    ]
-  },
-  {
-    title: 'No-SQL',
-    Icon: MongoLogo,
-    description: [
-      'Complex CRUD operations',
-      'Transations',
-      'Migrations and migration tecniques',
-      'able to use mongoose if necessary'
+      'SQL with postgress',
+      'NoSQL with MongoDB',
+      'Graph based retrieval with graphQL'
+    ],
+    innerIcons: [
+      {
+        title: 'Postgres SQL',
+        Icon: PostgresLogo
+      },
+      {
+        title: 'Mongo DB',
+        Icon: MongoLogo
+      },
+      {
+        title: 'GraphQL',
+        Icon: GraphQlLogo
+      },
+      {
+        title: 'Redis',
+        Icon: RedisLogo
+      }
     ]
   },
   {
@@ -134,6 +207,9 @@ const developmentDetails: ISkillPresentation[] = [
     description: [
       'Threds and process.',
       'Concurrency, parallelism etc.'
+    ],
+    innerIcons: [
+
     ]
   },
   {
@@ -144,56 +220,10 @@ const developmentDetails: ISkillPresentation[] = [
       'TCP/IP.',
       'HTTP',
       'DNS'
+    ],
+    innerIcons: [
+
     ]
-  },
-  {
-    title: 'GraphQL',
-    Icon: GraphQlLogo,
-    description: [
-      'Queries and mutations',
-      'able to use Apollo client if necessary'
-    ]
-  },
-  {
-    title: 'NextJS',
-    Icon: NextJSLogo,
-    description: [
-      'SSG and SSR'
-    ]
-  },
-  {
-    title: 'Git',
-    Icon: GitLogo,
-    description: [
-      'Git flow'
-    ]
-  },
-  {
-    title: 'Redis',
-    Icon: RedisLogo,
-    description: []
-  },
-  {
-    title: 'Docker',
-    Icon: DockerLogo,
-    description: []
-  },
-  {
-    title: 'Jest',
-    Icon: JestLogo,
-    description: [
-      'Back-end unit test'
-    ]
-  },
-  {
-    title: 'GitLab',
-    Icon: GitLabLogo,
-    description: []
-  },
-  {
-    title: 'Caching',
-    Icon: CachingIcon,
-    description: []
   },
   {
     title: 'Linux/WSL',
@@ -201,89 +231,54 @@ const developmentDetails: ISkillPresentation[] = [
     description: [
       'Debian based distros',
       'Most commom tools/cmds: find, sed, awk, grep, curl, wget.'
+    ],
+    innerIcons: [
+      {
+        title: 'Bash',
+        Icon: BashLogo
+      },
+      {
+        title: 'Vim',
+        Icon: VimLogo
+      }
     ]
   },
   {
-    title: 'Bash',
-    Icon: BashLogo,
+    title: 'CI/CD',
+    Icon: CICDIcon,
     description: [
-      'Broad understanding and practice bash as a language. '
+      'Testing',
+      'Pipeline'
+    ],
+    innerIcons: [
+      {
+        title: 'Jest',
+        Icon: JestLogo
+      },
+      {
+        title: 'GitLab',
+        Icon: GitLabLogo
+      }
     ]
   },
   {
-    title: 'npm',
-    Icon: NPMLogo,
+    title: 'Design',
+    Icon: DesignIcon,
     description: [
-      'NPM scripts.'
-    ]
-  },
-  {
-    title: 'Webpack',
-    Icon: WebpackLogo,
-    description: []
-  },
-  {
-    title: 'Babel',
-    Icon: BabelLogo,
-    description: []
-  },
-  {
-    title: 'PostCSS',
-    Icon: PostCSSLogo,
-    description: []
-  },
-  {
-    title: 'Tailwind',
-    Icon: TailwindCSSLogo,
-    description: []
-  },
-  {
-    title: 'Styled Components',
-    Icon: StyledComponents,
-    description: []
-  },
-  {
-    title: 'React Router',
-    Icon: ReactRouter,
-    description: []
-  },
-  {
-    title: 'Cryptography',
-    Icon: CrytoIcon,
-    description: []
-  },
-  {
-    title: 'OAuth',
-    Icon: OAuthLogo,
-    description: []
-  },
-  {
-    title: 'JWT',
-    Icon: JWTLogo,
-    description: []
-  },
-  {
-    title: 'Vim',
-    Icon: VimLogo,
-    description: [
-      'Vim can be something very usefull when some atipical editing directly in the server must happen.',
-      'Most common vim commands.'
-    ]
-  },
-  {
-    title: 'Photoshop',
-    Icon: PhotoshopLogo,
-    description: [
-      'Complete confortable with the software.',
-      'Intermediary image manipulations.'
-    ]
-  },
-  {
-    title: 'Illustrator',
-    Icon: IllustratorLogo,
-    description: [
-      'Complete confortable with the software.',
-      'Intermediary vector skills.'
+      'Photoshop',
+      'Illustrator',
+      'Color theory',
+      'Color blind .-.'
+    ],
+    innerIcons: [
+      {
+        title: 'Photoshop',
+        Icon: PhotoshopLogo
+      },
+      {
+        title: 'Illustrator',
+        Icon: IllustratorLogo
+      }
     ]
   }
 ];

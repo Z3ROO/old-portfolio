@@ -3,7 +3,6 @@ import { ITitledIcon } from "../../content/projects";
 import { ISkillPresentation, skillsDetails, skillsPresentation } from "../../content/skills";
 import useOnScroll from "../../lib/hooks/useOnScroll";
 import useScreenSize from "../../lib/hooks/useScreenSize";
-import { LinuxLogo } from "../../lib/icons";
 import Container from "../atomic/Container";
 import SectionTitle from "../atomic/SectionTitle";
 
@@ -59,7 +58,7 @@ function DevelopmentSection(): JSX.Element {
       {
         !['2xs','xs'].includes(screenSize) ?
         <DevelopmentSectionDetailBox selectedSkill={selectedSkill}/> :
-        selectedSkill && <MobileDevelopmentSectionDetailBox selectedSkill={selectedSkill} setSelectedSkill={setSelectedSkill}/>
+        selectedSkill != null && <MobileDevelopmentSectionDetailBox selectedSkill={selectedSkill} setSelectedSkill={setSelectedSkill}/>
       }
     </Container>
   )
@@ -220,45 +219,20 @@ function DevelopmentDetailBoxContent({selectedSkill}: {selectedSkill: number|nul
               <p className="m-2">&#8857; {item}.</p>
             ))
           }
-          {
-            skillDescription.map((item) => (
-              <p className="m-2">&#8857; {item}.</p>
-            ))
-          }
-          {
-            skillDescription.map((item) => (
-              <p className="m-2">&#8857; {item}.</p>
-            ))
-          }
-          {
-            skillDescription.map((item) => (
-              <p className="m-2">&#8857; {item}.</p>
-            ))
-          }
-          {
-            skillDescription.map((item) => (
-              <p className="m-2">&#8857; {item}.</p>
-            ))
-          }
-          {
-            skillDescription.map((item) => (
-              <p className="m-2">&#8857; {item}.</p>
-            ))
-          }
         </div>
         <div className={`
           flex flex-wrap self-start shrink-0
-          sm:max-w-[6rem] 
+          sm:max-w-[8rem] 
           lg:max-w-none
-          xl:max-w-[6rem] 
+          xl:max-w-[8rem] 
           2xl:max-w-none    
         `}>
-          <LinuxLogo className="fill-white dark:fill-red-400 sm:fill-red-400 w-12"/>
-          <LinuxLogo className="fill-white dark:fill-red-400 sm:fill-red-400 w-12"/>
-          <LinuxLogo className="fill-white dark:fill-red-400 sm:fill-red-400 w-12"/>
-          <LinuxLogo className="fill-white dark:fill-red-400 sm:fill-red-400 w-12"/>
-          <LinuxLogo className="fill-white dark:fill-red-400 sm:fill-red-400 w-12"/>
-          <LinuxLogo className="fill-white dark:fill-red-400 sm:fill-red-400 w-12"/>
+          {
+            skillsDetails.development[selectedSkill].innerIcons?.map(({title, Icon}) => (
+              <div title={title}><Icon className="fill-white dark:fill-red-400 sm:fill-red-400 w-12 sm:w-8 m-1 sm:m-3" /></div>
+              )
+            )
+          }
         </div>
       </div>
     </>
