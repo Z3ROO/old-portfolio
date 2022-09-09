@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { ITitledIcon } from "../../content/projects";
 import { ISkillPresentation, skillsDetails, skillsPresentation } from "../../content/skills";
 import useOnScroll from "../../lib/hooks/useOnScroll";
 import useScreenSize from "../../lib/hooks/useScreenSize";
+import { LinuxLogo } from "../../lib/icons";
 import Container from "../atomic/Container";
 import SectionTitle from "../atomic/SectionTitle";
 
@@ -162,21 +163,16 @@ function DevelopmentSectionDetailBox({ selectedSkill }: { selectedSkill:number|n
       </div>
     );
   
-  const skillDescription = skillsDetails.development[selectedSkill].description as string[];
   return (
     <Container className={`
       w-full shrink-0
-      h-auto grow
-      lg:w-96 lg:h-full 
-      xl:w-full xl:h-auto
-      2xl:w-96 2xl:h-full 
+      h-auto grow max-h-96
+      lg:w-96 lg:h-full lg:max-h-[40rem]
+      xl:w-full xl:h-auto xl:max-h-96
+      2xl:w-96 2xl:h-full 2xl:max-h-[45rem]
     `}>
-      <h2 className="text-3xl font-bold mb-4">{skillsDetails.development[selectedSkill].title}</h2>
-      {
-        skillDescription.map((item) => (
-          <p className="m-2">&#8857; {item}.</p>
-        ))
-      }
+    <DevelopmentDetailBoxContent selectedSkill={selectedSkill}/>
+
     </Container>
   )
 }
@@ -193,18 +189,79 @@ function MobileDevelopmentSectionDetailBox({ selectedSkill, setSelectedSkill }: 
     window.scrollTo(scrollLeft, scrollTop);
   });
   
-  const skillDescription = skillsDetails.development[selectedSkill].description as string[];
   return (
     <div onClick={() => setSelectedSkill(null)} className={`
       fixed h-screen w-full top-0 left-0 bg-red-400 text-white dark:bg-gray-700 dark:text-red-400 z-50 px-8 py-12
       `}>
-      <h2 className="text-3xl font-bold mb-4">{skillsDetails.development[selectedSkill].title}</h2>
-      {
-        skillDescription.map((item) => (
-          <p className="m-2">&#8857; {item}.</p>
-        ))
-      }
+      <DevelopmentDetailBoxContent selectedSkill={selectedSkill}/>
     </div>
+  )
+}
+
+function DevelopmentDetailBoxContent({selectedSkill}: {selectedSkill: number|null}) {
+  if (selectedSkill == null)
+    return null;
+
+  const skillDescription = skillsDetails.development[selectedSkill].description as string[];
+  return (
+    <>
+      <h2 className="text-3xl font-bold mb-4">{skillsDetails.development[selectedSkill].title}</h2>
+      <div className={`
+        flex h-[calc(100%-3rem)]
+        flex-col
+        sm:flex-row
+        lg:flex-col
+        xl:flex-row
+        2xl:flex-col        
+      `}>
+        <div className="flex-grow overflow-y-auto overflow-x-hidden">
+          {
+            skillDescription.map((item) => (
+              <p className="m-2">&#8857; {item}.</p>
+            ))
+          }
+          {
+            skillDescription.map((item) => (
+              <p className="m-2">&#8857; {item}.</p>
+            ))
+          }
+          {
+            skillDescription.map((item) => (
+              <p className="m-2">&#8857; {item}.</p>
+            ))
+          }
+          {
+            skillDescription.map((item) => (
+              <p className="m-2">&#8857; {item}.</p>
+            ))
+          }
+          {
+            skillDescription.map((item) => (
+              <p className="m-2">&#8857; {item}.</p>
+            ))
+          }
+          {
+            skillDescription.map((item) => (
+              <p className="m-2">&#8857; {item}.</p>
+            ))
+          }
+        </div>
+        <div className={`
+          flex flex-wrap self-start shrink-0
+          sm:max-w-[6rem] 
+          lg:max-w-none
+          xl:max-w-[6rem] 
+          2xl:max-w-none    
+        `}>
+          <LinuxLogo className="fill-white dark:fill-red-400 sm:fill-red-400 w-12"/>
+          <LinuxLogo className="fill-white dark:fill-red-400 sm:fill-red-400 w-12"/>
+          <LinuxLogo className="fill-white dark:fill-red-400 sm:fill-red-400 w-12"/>
+          <LinuxLogo className="fill-white dark:fill-red-400 sm:fill-red-400 w-12"/>
+          <LinuxLogo className="fill-white dark:fill-red-400 sm:fill-red-400 w-12"/>
+          <LinuxLogo className="fill-white dark:fill-red-400 sm:fill-red-400 w-12"/>
+        </div>
+      </div>
+    </>
   )
 }
 interface IDetailsContainer extends ISkillPresentation {
