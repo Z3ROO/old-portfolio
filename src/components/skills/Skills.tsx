@@ -216,7 +216,7 @@ function DevelopmentDetailBoxContent({selectedSkill}: {selectedSkill: number|nul
         <div className="flex-grow overflow-y-auto overflow-x-hidden">
           {
             skillDescription.map((item) => (
-              <p className="m-2">&#8857; {item}.</p>
+              <p className="m-2">&#8857; {item}</p>
             ))
           }
         </div>

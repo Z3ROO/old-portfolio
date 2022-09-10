@@ -1,4 +1,4 @@
-import { BurpLogo, OwaspLogo, WebProtectionIcon, HTMLLogo, CSSLogo, JsLogo, ReactLogo, ElectronJSLogo, PostgresLogo, MongoLogo, OSIcon, NetworkIcon, FundamentalsIcon, GraphQlLogo, NextJSLogo, GitLogo, RedisLogo, DockerLogo, JestLogo, GitLabLogo, LinuxLogo, BashLogo, NPMLogo, WebpackLogo, BabelLogo, PostCSSLogo, TailwindCSSLogo, StyledComponents, ReactRouter, CrytoIcon, OAuthLogo, JWTLogo, VimLogo, PhotoshopLogo, IllustratorLogo, HackerIcon, DevelopmentIcon, DesignThinkingIcon, SEOIcon, DatabaseIcon, DesignIcon, CICDIcon } from "../lib/icons";
+import { BurpLogo, OwaspLogo, WebProtectionIcon, HTMLLogo, CSSLogo, JsLogo, ReactLogo, ElectronJSLogo, PostgresLogo, MongoLogo, OSIcon, NetworkIcon, FundamentalsIcon, GraphQlLogo, NextJSLogo, GitLogo, RedisLogo, DockerLogo, JestLogo, GitLabLogo, LinuxLogo, BashLogo, NPMLogo, WebpackLogo, BabelLogo, PostCSSLogo, TailwindCSSLogo, StyledComponents, ReactRouter, CrytoIcon, OAuthLogo, JWTLogo, VimLogo, PhotoshopLogo, IllustratorLogo, HackerIcon, DevelopmentIcon, DesignThinkingIcon, SEOIcon, DatabaseIcon, DesignIcon, CICDIcon, NodeLogo } from "../lib/icons";
 import { ITitledIcon } from "./projects";
 
 export interface ISkillPresentation extends ITitledIcon {
@@ -35,27 +35,38 @@ const securityDetails: ISkillPresentation[] = [
   {
     title:'Burp',
     Icon: BurpLogo,
-    description: 'Burp is a proxy tool for send/intercept http request/response. Almost one year using this tool made me fluent in http.'
+    description: `
+      Burp is a proxy tool for send/intercept http request/response. 
+      Almost one year using this tool made me fluent in http.
+    `
   },
   {
     title:'Owasp',
     Icon: OwaspLogo,
-    description: 'Up to date with the owasp 2017 & 2021 top 10 vulnerabilities e much more not included in the list.'
+    description: `
+      Up to date with the owasp 2017 & 2021 top 10 vulnerabilities and others not included in the list.
+    `
   },
   {
     title:'Browser Security',
     Icon: WebProtectionIcon,
-    description: 'Able to deal, respect and or implement browser security mechanisms like CORS, SOP, CSP etc.'
+    description: `
+      Able to deal, respect and or implement browser security mechanisms like CORS, SOP, CSP etc.
+    `
   },
   {
     title: 'Cryptography',
     Icon: CrytoIcon,
-    description: ''
+    description: `
+      MD5 and SHA family Hashing, Diffie Hellman key exchange. Basics of cryptography in general.
+    `
   },
   {
     title: 'oAuth',
     Icon: OAuthLogo,
-    description: ''
+    description: `
+      Most common threat vectors of oAuth
+    `
   },
   {
     title: 'JWT',
@@ -69,10 +80,14 @@ const developmentDetails: ISkillPresentation[] = [
     title: 'Fundamentals',
     Icon: FundamentalsIcon,
     description: [
-      'Able to build anything data-intensive related',
+      `Able to build any kind of system front to back.`,
       'Strong logical thinking.',
       'Data structures and Algorithms.',
-      'Visualize code end-result.'
+      'Design patterns',
+      'Clean code with good principles',
+      'SoP, ports N adapters.',
+      'Common git workflow with best practices.',
+      'Containerization with Docker'
     ],
     innerIcons: [
       {
@@ -92,6 +107,7 @@ const developmentDetails: ISkillPresentation[] = [
       'Conventions and best practices.',
       'Semantic structure.',
       'SEO.',
+      'Intermediary Canvas manipulation.',
       'Basics of accessibility.'
     ],
     innerIcons: [
@@ -105,8 +121,11 @@ const developmentDetails: ISkillPresentation[] = [
     title: 'CSS',
     Icon: CSSLogo,
     description: [
-      'Box Model, flexbox, grid.',
+      'Box Model, flexbox, grid, transform, transition etc.',
       'Responsive design.',
+      'Tailwind',
+      'Styled Components',
+      'Compilation with PostCSS',
       'Basics of SASS.'
     ],
     innerIcons: [
@@ -128,16 +147,24 @@ const developmentDetails: ISkillPresentation[] = [
     title: 'Javascript',
     Icon: JsLogo,
     description: [
-      'ES6+',
-      'NodeJs core modules and concepts.',
-      'Promises, async/await.',
+      'ES6+ code structure, built in methods and operators',
       'Core concepts: CallStack, EventLoop, hoisting, closure etc.',
-      'DOM manipulations, fetch.'
+      'DOM manipulations, fetch.',
+      'Promises, async/await.',
+      'SSG/SSR using NextJS',
+      'Babel and Webpack core concepts and usage',
+      'Node: libuv event loop',
+      'Node: core modules fs, os, http, streams etc.',
+      'Node: events, streams, clustering etc.'
     ],
     innerIcons: [
       {
         title: 'NPM',
         Icon: NPMLogo
+      },
+      {
+        title: 'NodeJS',
+        Icon: NodeLogo
       },
       {
         title: 'Babel',
@@ -157,11 +184,13 @@ const developmentDetails: ISkillPresentation[] = [
     title: 'ReactJS/Native',
     Icon: ReactLogo,
     description: [
-      'Browser/Android/IOS.',
+      'Browser/Android/IOS and Desktop with ElectronJS.',
       'Proficient with functional components.',
-      'Complete understanding of hooks.',
-      'core concepts: Reconciliation algorithm, state update etc.',
-      'Overall understanding of class components.'
+      'Built in and custom hooks.',
+      'Reconciliation algorithm, state update etc.',
+      'State management with custom hooks and context API.',
+      'Overall understanding of class components.',
+      'Basics of React Router'
     ],
     innerIcons: [
       {
@@ -180,7 +209,8 @@ const developmentDetails: ISkillPresentation[] = [
     description: [
       'SQL with postgress',
       'NoSQL with MongoDB',
-      'Graph based retrieval with graphQL'
+      'Graph based retrieval with graphQL',
+      'Memory storage with Redis'
     ],
     innerIcons: [
       {
@@ -205,8 +235,12 @@ const developmentDetails: ISkillPresentation[] = [
     title: 'O.S',
     Icon: OSIcon,
     description: [
+      'POSIX',
       'Threds and process.',
-      'Concurrency, parallelism etc.'
+      'Concurrency, parallelism etc.',
+      'Memory management',
+      'Inter process comunication',
+      'I/O management'
     ],
     innerIcons: [
 
@@ -218,8 +252,8 @@ const developmentDetails: ISkillPresentation[] = [
     description: [
       '5 layer network model.',
       'TCP/IP.',
-      'HTTP',
-      'DNS'
+      'HTTP.',
+      'DNS.'
     ],
     innerIcons: [
 
@@ -230,7 +264,10 @@ const developmentDetails: ISkillPresentation[] = [
     Icon: LinuxLogo,
     description: [
       'Debian based distros',
-      'Most commom tools/cmds: find, sed, awk, grep, curl, wget.'
+      `[change]Terminal Commands: grep, awk, sed, lsof, curl, wget
+      tail, head, less, find, ssh, kill etc.`,
+      'Bash scripting lenguage.',
+      'Confortable with Vim.'
     ],
     innerIcons: [
       {
@@ -265,9 +302,10 @@ const developmentDetails: ISkillPresentation[] = [
     title: 'Design',
     Icon: DesignIcon,
     description: [
-      'Photoshop',
-      'Illustrator',
-      'Color theory',
+      'I\'m not a designer but ...',
+      'Completely confortable with Photoshop and Illustrator.',
+      'Able to use any software never used due to understanding of fundamentals.',
+      'Basics of color theory.',
       'Color blind .-.'
     ],
     innerIcons: [
