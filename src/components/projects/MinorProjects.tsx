@@ -22,6 +22,7 @@ export default function MinorProjects(): JSX.Element {
             ))
           }
         </SlidableCardList>
+        
       </div>
     </>
   )
@@ -83,7 +84,13 @@ function SlidableCardList({children}: any) {
             rightArrowRef.current!.style.cursor = newCardListLeftPosition === -(hiddenCardsQtd * cardWidth) ? 'auto': 'pointer';
           }}
         ></div>
-      <div className="relative h-96 overflow-hidden">
+      
+      
+      <div className="relative h-96 flex items-center">
+        <div className="hidden sm:block absolute w-full top-0">
+          <div className="absolute h-96  w-full -left-[104%] z-10 bg-gray-800"></div>
+          <div className="absolute h-96  w-[10%] -left-[4%] z-10 bg-gradient-to-l from-transparent to-gray-800"></div>
+        </div>
         <div 
           className="flex absolute left-0" ref={cardListRef}
           onMouseDown={(e) => {            
@@ -153,6 +160,11 @@ function SlidableCardList({children}: any) {
         >
             {children}
         </div>
+        
+        <div className="hidden sm:block absolute w-full top-0">
+          <div className="absolute h-96  w-[10%] -right-[4%] z-10 bg-gradient-to-r from-transparent to-gray-800"></div>
+          <div className="absolute h-96  w-full -right-[104%] z-10 bg-gray-800"></div>
+        </div>
       </div>
     </>
   )
@@ -161,11 +173,11 @@ function SlidableCardList({children}: any) {
 function MinorProject({project}:{project:IminorProject}): JSX.Element {
   let {title, description, Icon} = project;
   if (title.length > 20)
-    title = title.substring(0,18)+'...'
+    title = title.substring(0,16)+'...'
     
   return (
-    <Container className="w-60 mr-4">
-      <Icon className="w-48 h-48 fill-red-400"/>
+    <Container className="w-56 mr-4 hover:scale-105 transition-all">
+      <Icon className="w-40 h-40 mx-auto mt-2 mb-4 fill-red-400"/>
       <div className="flex flex-col">
         <div className="flex-grow h-[5.5rem] overflow-hidden mb-2">
           <h2 className="font-bold text-lg">{title}</h2>
