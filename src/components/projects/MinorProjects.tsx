@@ -88,8 +88,8 @@ function SlidableCardList({children}: any) {
       
       <div className="relative h-96 flex items-center">
         <div className="hidden sm:block absolute w-full top-0">
-          <div className="absolute h-96  w-full -left-[104%] z-10 bg-gray-800"></div>
-          <div className="absolute h-96  w-[10%] -left-[4%] z-10 bg-gradient-to-l from-transparent to-gray-800"></div>
+          <div className="absolute h-96  w-full -left-[104%] z-10 bg-white dark:bg-gray-800"></div>
+          <div className="absolute h-96  w-[10%] -left-[4%] z-10 bg-gradient-to-l from-transparent to-white dark:to-gray-800"></div>
         </div>
         <div 
           className="flex absolute left-0" ref={cardListRef}
@@ -162,8 +162,8 @@ function SlidableCardList({children}: any) {
         </div>
         
         <div className="hidden sm:block absolute w-full top-0">
-          <div className="absolute h-96  w-[10%] -right-[4%] z-10 bg-gradient-to-r from-transparent to-gray-800"></div>
-          <div className="absolute h-96  w-full -right-[104%] z-10 bg-gray-800"></div>
+          <div className="absolute h-96  w-[10%] -right-[4%] z-10 bg-gradient-to-r from-transparent to-white dark:to-gray-800"></div>
+          <div className="absolute h-96  w-full -right-[104%] z-10 bg-white dark:bg-gray-800"></div>
         </div>
       </div>
     </>
